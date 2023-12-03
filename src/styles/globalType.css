@@ -1,0 +1,20 @@
+@import url('https://use.typekit.net/npd1kgb.css');
+
+html {
+  font-family: -apple-system, Inter, Lato, 'Lato', 'Helvetica Neue',
+    BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
+  text-rendering: optimizeLegibility;
+  font-variant-ligatures: common-ligatures;
+
+  /* line-height: 1.75rem;  */
+  /* 28px */
+  /* font-size: 1.125rem;  */
+  /* 18px */
+  /* letter-spacing: 0.2px; */
+}
+
+h1,
+h2 {
+  font-family: 'p22-mackinac-pro', Georgia, serif;
+}

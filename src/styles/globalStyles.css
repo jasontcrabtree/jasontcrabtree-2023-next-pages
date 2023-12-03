@@ -1,0 +1,10 @@
+/* Because we've globally removed list items on all lists by default, we need to re-add them for our markdown posts.
+This has a high level of specificity and should work fine
+
+Instances where this matters:
+CaseStudies
+BlogPosts
+*/
+article > ul > li {
+  list-style-type: disc;
+}
