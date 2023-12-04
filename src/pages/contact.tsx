@@ -143,7 +143,7 @@ function ContactPage() {
             <div className="message-wrapper">
               <label htmlFor="message">
                 Project Details
-                <textarea name="message" rows="4" />
+                <textarea name="message" rows={4} />
               </label>
             </div>
             <div>
