@@ -121,7 +121,7 @@ function ContactPage() {
               </label>
             </div>
             <div>
-              <label type="select" htmlFor="project">
+              <label htmlFor="project">
                 Project Type:
                 <select name="project" id="project">
                   <option value="website-development">

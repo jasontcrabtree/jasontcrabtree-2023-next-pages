@@ -87,10 +87,16 @@ const SnippetCardStyles = styled.li`
   }
 `;
 
-function SnippetCard({ title, description, date, slug, cardWithDescription }) {
+function SnippetCard({
+  title,
+  description,
+  date,
+  slug,
+  cardWithDescription,
+}: any): any {
   return (
     <SnippetCardStyles className="work-list-card">
-      <Link to={slug} className="read">
+      <Link href={slug} className="read">
         <div className="card-details">
           <p className="date--style">Published: {date}</p>
           <h2 className="card-title">{title}</h2>
@@ -103,26 +109,27 @@ function SnippetCard({ title, description, date, slug, cardWithDescription }) {
 
 function SnippetsList() {
   // TODO: Sort blog post and this query out to seperate case study, blog post and snippets
-  const data = useStaticQuery(graphql`
-    query allSnippets {
-      allMdx(
-        sort: { fields: frontmatter___date, order: DESC }
-        filter: { frontmatter: { type: { eq: "snippet" } } }
-      ) {
-        nodes {
-          slug: id
-          frontmatter {
-            title
-            image
-            description
-            date(formatString: "D MM YYYY")
-          }
-        }
-      }
-    }
-  `);
+  // const data = useStaticQuery(graphql`
+  //   query allSnippets {
+  //     allMdx(
+  //       sort: { fields: frontmatter___date, order: DESC }
+  //       filter: { frontmatter: { type: { eq: "snippet" } } }
+  //     ) {
+  //       nodes {
+  //         slug: id
+  //         frontmatter {
+  //           title
+  //           image
+  //           description
+  //           date(formatString: "D MM YYYY")
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
 
-  const snippets = data.allMdx.nodes;
+  // const snippets = data.allMdx.nodes;
+  const snippets: any[] = [];
 
   return (
     <ul className="snippets__list">

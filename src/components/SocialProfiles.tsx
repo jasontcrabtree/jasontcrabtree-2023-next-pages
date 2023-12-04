@@ -48,7 +48,7 @@ const SocialListStyles = styled.ul`
 
 function SocialProfiles() {
   return (
-    <SocialListStyles className="hero-social-list">
+    <SocialListStyles className="hero-social-list social-parent">
       <li>
         <a aria-label="github-link" href="https://github.com/jasontcrabtree">
           <svg
@@ -60,8 +60,7 @@ function SocialProfiles() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="feather feather-github"
-          >
+            className="feather feather-github">
             <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
           </svg>
         </a>
@@ -77,8 +76,7 @@ function SocialProfiles() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="feather feather-codepen"
-          >
+            className="feather feather-codepen">
             <path d="M12 2l10 6.5v7L12 22 2 15.5v-7L12 2zM12 22v-6.5" />
             <path d="M22 8.5l-10 7-10-7" />
             <path d="M2 15.5l10-7 10 7M12 2v6.5" />
@@ -96,8 +94,7 @@ function SocialProfiles() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="feather feather-twitter"
-          >
+            className="feather feather-twitter">
             <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
           </svg>
         </a>
@@ -113,8 +110,7 @@ function SocialProfiles() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="feather feather-mail"
-          >
+            className="feather feather-mail">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
             <path d="M22 6l-10 7L2 6" />
           </svg>
@@ -123,15 +119,13 @@ function SocialProfiles() {
       <li>
         <a
           aria-label="dribbble-link"
-          href="https://dribbble.com/jasontcrabtree"
-        >
+          href="https://dribbble.com/jasontcrabtree">
           <svg
             width="24"
             height="24"
             viewBox="0 0 100 100"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+            xmlns="http://www.w3.org/2000/svg">
             <path
               fillRule="evenodd"
               clipRule="evenodd"
@@ -152,8 +146,7 @@ function SocialProfiles() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="feather feather-rss"
-          >
+            className="feather feather-rss">
             <path d="M4 11a9 9 0 019 9M4 4a16 16 0 0116 16" />
             <circle cx="5" cy="19" r="1" />
           </svg>

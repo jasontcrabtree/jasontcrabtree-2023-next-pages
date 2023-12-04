@@ -20,7 +20,7 @@ const FourOhFourParentStyles = styled.main`
   }
 `;
 
-const PageNotFound = props => {
+const PageNotFound = (props: any) => {
   if (!props) return null;
 
   return (

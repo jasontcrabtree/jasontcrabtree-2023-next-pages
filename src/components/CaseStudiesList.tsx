@@ -63,7 +63,7 @@ const WorkListItemStyles = styled.li`
   }
 `;
 
-function WorkListItem({ title, image, description, date, slug }): any {
+function WorkListItem({ title, image, description, date, slug }: any): any {
   return (
     <WorkListItemStyles className="work-list-card">
       <Link href={slug} className="read">
@@ -99,7 +99,8 @@ function CaseStudiesList() {
   //   }
   // `);
 
-  const workItems = data?.allMdx.nodes || [];
+  // const workItems = data?.allMdx.nodes || [];
+  const workItems: any[] = [];
 
   return (
     <ul className="work-list-container">

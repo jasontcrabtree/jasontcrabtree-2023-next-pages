@@ -138,7 +138,7 @@ function GlobalFooter() {
       <section>
         <h3>Social</h3>
         {/* <Social className="social-parent" /> */}
-        <SocialProfiles className="social-parent" />
+        <SocialProfiles />
       </section>
       <section>
         <h3>Explore</h3>

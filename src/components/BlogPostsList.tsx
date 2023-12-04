@@ -84,7 +84,13 @@ const BlogPostCardStyles = styled.li`
   }
 `;
 
-function BlogPostCard({ title, description, date, slug, cardWithDescription }) {
+function BlogPostCard({
+  title,
+  description,
+  date,
+  slug,
+  cardWithDescription,
+}: any): any {
   return (
     <BlogPostCardStyles className="work-list-card">
       <Link href={slug} className="read">
@@ -101,7 +107,7 @@ function BlogPostCard({ title, description, date, slug, cardWithDescription }) {
   );
 }
 
-function BlogPostsList({ cardWithDescription, paginationLimit }) {
+function BlogPostsList({ cardWithDescription, paginationLimit }: any): any {
   // const data = useStaticQuery(graphql`
   //   query allBlogPosts {
   //     allMdx(
@@ -122,7 +128,7 @@ function BlogPostsList({ cardWithDescription, paginationLimit }) {
   // `);
 
   // const blogPostItem = data.allMdx?.nodes || [];
-  const blogPostItem = [];
+  const blogPostItem: any[] = [];
 
   return (
     <ul className="work-list-container">
