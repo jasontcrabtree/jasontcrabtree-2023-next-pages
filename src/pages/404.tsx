@@ -27,7 +27,7 @@ const PageNotFound = props => {
     <FourOhFourParentStyles id="main">
       {/* <SEO /> */}
       <header className="four-oh-four-header">
-        <h1>Sh*t! Something's broken 🛠</h1>
+        <h1>Sh*t! Something is broken 🛠</h1>
       </header>
       <section>
         <p>

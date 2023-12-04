@@ -10,7 +10,7 @@ import styled from 'styled-components';
 
 import GlobalFooter from '../components/GlobalFooter';
 import GlobalNav from '../components/GlobalNav';
-import SEO from '../components/SEO';
+// import SEO from '../components/SEO';
 import BgColumn from '../components/BgColumn';
 import SkipLink from '../components/SkipLink';
 

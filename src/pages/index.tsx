@@ -6,12 +6,14 @@ import styled from 'styled-components';
 import WebsiteProjects from '../components/WebsiteProjects';
 import CaseStudiesList from '../components/CaseStudiesList';
 
-import SEO from '../components/SEO';
+// import SEO from '../components/SEO';
 import SocialProfiles from '../components/SocialProfiles';
 
 import BlogPostsList from '../components/BlogPostsList';
 import DribbbleGallery from '../components/DribbbleGallery';
 import ColleagueQuotes from '../components/ColleagueQuotes';
+
+import CustomLazyImage from '../components/CustomLazyImage';
 
 const IndexPageStyles = styled.main`
   grid-row-start: 2;
@@ -315,7 +317,8 @@ export default function Home() {
 
         <section className="work-list-container" id="code">
           <h2 className="work-title">Website Projects</h2>
-          <WebsiteProjects className="work-list-container" />
+          <WebsiteProjects />
+          {/* className="work-list-container" */}
         </section>
 
         <hr />

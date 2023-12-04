@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import styled from 'styled-components';
-// import CustomLazyImage from '../utils/CustomLazyImage';
+import CustomLazyImage from '../components/CustomLazyImage';
 
 const WorkListItemStyles = styled.li`
   .card-details {
@@ -63,11 +63,11 @@ const WorkListItemStyles = styled.li`
   }
 `;
 
-function WorkListItem({ title, image, description, date, slug }) {
+function WorkListItem({ title, image, description, date, slug }): any {
   return (
     <WorkListItemStyles className="work-list-card">
-      <Link to={slug} className="read">
-        <CustomLazyImage src={image} alt={title} className="cover-image" />
+      <Link href={slug} className="read">
+        <CustomLazyImage src={image} alt={title} cls="cover-image" />
         <div className="card-details">
           <h2 className="card-title">{title}</h2>
           <span className="date--style">Project Date: {date}</span>

@@ -93,8 +93,7 @@ function ContactPage() {
           method="post"
           data-netlify="true"
           netlify-honeypot="bot-field"
-          action="/contact-success"
-        >
+          action="/contact-success">
           <fieldset className="contact-form-fieldset--style">
             <h2>Contact Form</h2>
             <input type="hidden" name="form-name" value="contact" />
