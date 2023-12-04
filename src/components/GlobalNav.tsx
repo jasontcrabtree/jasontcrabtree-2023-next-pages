@@ -117,7 +117,7 @@ const GlobalNav = () => (
       <Link className="nav-hidden" href="/#code">
         Work
       </Link>
-      <Link href="/blog">Blog</Link>
+      {/* <Link href="/blog">Blog</Link> */}
     </nav>
   </GlobalNavStyles>
 );

@@ -149,7 +149,7 @@ function GlobalFooter() {
           <Link className="nav-hidden" href="/#code">
             Work
           </Link>
-          <Link href="/blog">Blog</Link>
+          {/* <Link href="/blog">Blog</Link> */}
           {/* <Link href="/snippets">Snippets</Link> */}
         </nav>
       </section>

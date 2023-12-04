@@ -1,13 +1,11 @@
-import Link from 'next/link';
 import styled from 'styled-components';
 
-// import ScaffoldSVG from '../../public/assets/svgs/coverIllustrations/ScaffoldSVG';
-// import SapwoodSVG from '../../../static/assets/svgs/coverIllustrations/SapwoodSVG.svg';
-// import SalesEmailsAppSVG from '../../../static/assets/svgs/coverIllustrations/SalesEmailsAppSVG.svg';
-// import CharacterCounterSVG from '../../../static/assets/svgs/coverIllustrations/CharacterCounterSVG.svg';
-// import CSSPosterSVG from '../../../static/assets/svgs/coverIllustrations/CSSPosterSVG.svg';
-// import ZoeSVG from '../../../static/assets/svgs/coverIllustrations/ZoeSVG.svg';
-// import WireframeSVG from '../../../static/assets/svgs/coverIllustrations/WireframeSVG.svg';
+import SapwoodSVG from './svgs/SapwoodSVG.svg';
+import ScaffoldSVG from './svgs/ScaffoldSVG.svg';
+import SalesEmailsAppSVG from './svgs/SalesEmailsAppSVG.svg';
+import CSSPosterSVG from './svgs/CSSPosterSVG.svg';
+import WireframeSVG from './svgs/WireframeSVG.svg';
+import CharacterCounterSVG from './svgs/CharacterCounterSVG.svg';
 
 const WebsiteProjectsStyles = styled.ul`
   --cover-rotation: -4deg;
@@ -89,15 +87,15 @@ function WebsiteProjects() {
     <WebsiteProjectsStyles className="work-list-container">
       <li className="websites-list-card">
         <a href="https://usescaffold.com/">
-          {/* <ScaffoldSVG
+          <ScaffoldSVG
             loading="lazy"
             width={100}
             height={100}
             className="cover-illustration"
-          /> */}
+          />
           <h2 className="card-title">UseScaffold</h2>
           Eleventy Digital eComm Website
-        </a>{' '}
+        </a>
         <a
           className="code-source"
           href="https://github.com/jasontcrabtree/usescaffold">
@@ -106,12 +104,12 @@ function WebsiteProjects() {
       </li>
       <li className="websites-list-card">
         <a href="https://sapwood.netlify.app/">
-          {/* <SapwoodSVG
+          <SapwoodSVG
             loading="lazy"
             width={100}
             height={100}
             className="cover-illustration"
-          /> */}
+          />
           <h2 className="card-title">Sapwood Demo</h2>
           Demo Website: GatsbyJS & Prismic
         </a>{' '}
@@ -123,12 +121,12 @@ function WebsiteProjects() {
       </li>
       <li className="websites-list-card">
         <a href="https://sales-emails.netlify.app/">
-          {/* <SalesEmailsAppSVG
+          <SalesEmailsAppSVG
             loading="lazy"
             width={100}
             height={100}
             className="cover-illustration"
-          /> */}
+          />
           <h2 className="card-title">Sales-Email App</h2>
           NextJS App: Cold-Email Starters
         </a>
@@ -140,12 +138,12 @@ function WebsiteProjects() {
       </li>
       <li className="websites-list-card">
         <a href="https://use-underscore.netlify.app/">
-          {/* <WireframeSVG
+          <WireframeSVG
             loading="lazy"
             width={100}
             height={100}
             className="cover-illustration"
-          /> */}
+          />
           <h2 className="card-title">Underscore</h2>
           NextJS: A tiny BEM CSS playground
         </a>
@@ -157,12 +155,11 @@ function WebsiteProjects() {
       </li>
       <li className="websites-list-card">
         <a href="https://charactercounter.netlify.app/">
-          {/* <CharacterCounterSVG
-            loading="lazy"
+          <CharacterCounterSVG
             width={100}
             height={100}
             className="cover-illustration"
-          /> */}
+          />
           <h2 className="card-title">Character Counter</h2>
           Micro Website: Counts Characters
         </a>
@@ -174,15 +171,15 @@ function WebsiteProjects() {
       </li>
       <li className="websites-list-card">
         <a href="https://codepen.io/jasontcrabtree/pen/qBbQXJP">
-          {/* <CSSPosterSVG
+          <CSSPosterSVG
             loading="lazy"
             width={100}
             height={100}
             className="cover-illustration"
-          /> */}
+          />
           <h2 className="card-title">CSS Poster Layout</h2>
           CodePen Public Link
-        </a>{' '}
+        </a>
       </li>
     </WebsiteProjectsStyles>
   );
