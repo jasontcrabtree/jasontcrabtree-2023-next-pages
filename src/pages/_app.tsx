@@ -116,7 +116,7 @@ const GlobalLayoutStyles = styled.div`
   }
 `;
 
-const GlobalLayout = (props: any) => {
+const GlobalLayout = (props: any): any => {
   if (!props) return null;
   const { title, image, location, children } = props;
 
