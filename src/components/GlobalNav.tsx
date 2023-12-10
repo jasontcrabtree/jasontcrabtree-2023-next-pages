@@ -111,7 +111,9 @@ const GlobalNav = () => (
     <nav className="nav-list">
       <Link href="/#hero">Home</Link>
       <Link href="/contact">Contact</Link>
-      <a href="/jason-crabtree-cv-2023.pdf" aria-label="navigates to CV PDF">
+      <a
+        href="/jason-crabtree-developer-cv-dec-2023.pdf"
+        aria-label="navigates to CV PDF">
         Résumé
       </a>
       <Link className="nav-hidden" href="/#code">
