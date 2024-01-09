@@ -115,21 +115,22 @@ function GlobalFooter() {
       <section className="footer-text--layout footer-text-style">
         <h3>With thanks</h3>
         <p>
-          Made with care in <strong>Auckland, New Zealand.</strong>
+          Made with care in <strong>Auckland, New Zealand</strong>
         </p>
         <p>
           An online spot to try new things, talk about what I'm learning, and
           generally share!
         </p>
         <p>
-          Built using the <a href="https://www.gatsbyjs.com/">Gatsby JS</a>,{' '}
+          Built using <a href="https://nextjs.org/">NextJS</a>,{' '}
           <a href="https://www.netlify.com/">Netlify</a>,{' '}
-          <a href="https://github.com/jasontcrabtree">Github</a>, and{' '}
-          <a href="https://buttondown.email/">Buttondown.</a>
+          <a href="https://www.netlify.com/">Styled Components</a>,{' '}
+          <a href="https://github.com/jasontcrabtree">GitHub</a>, and{' '}
+          <a href="https://buttondown.email/">Buttondown</a>
         </p>
         <p>
           <small>
-            &copy; Copyright 2018-2021. Jason Crabtee.
+            &copy; Copyright 2018-{new Date().getFullYear()} Jason Crabtee.
             <br />
             All rights reserved.
           </small>

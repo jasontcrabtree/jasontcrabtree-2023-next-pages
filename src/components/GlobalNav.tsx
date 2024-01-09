@@ -112,7 +112,7 @@ const GlobalNav = () => (
       <Link href="/#hero">Home</Link>
       <Link href="/contact">Contact</Link>
       <a
-        href="/jason-crabtree-developer-cv-dec-2023.pdf"
+        href="/jason-crabtree-cv.pdf"
         aria-label="navigates to CV PDF">
         Résumé
       </a>

@@ -82,26 +82,86 @@ const WebsiteProjectsStyles = styled.ul`
   }
 `;
 
+const ProjectItem = ({ link, illustration, title, description, codeSrc }: {
+  link: string,
+  illustration?: JSX.Element,
+  title: string,
+  description?: string,
+  codeSrc?: string
+}) => {
+  return (
+    <li className="websites-list-card">
+      <a href={link}>
+        {illustration ? illustration : null}
+        <h2 className="card-title">{title}</h2>
+        {description ? description : null}
+      </a>
+      {codeSrc ? (
+        <a
+          className="code-source"
+          href={codeSrc}>
+          Code Source
+        </a>
+      ) : null}
+    </li>
+  )
+}
+
 function WebsiteProjects() {
   return (
     <WebsiteProjectsStyles className="work-list-container">
-      <li className="websites-list-card">
-        <a href="https://usescaffold.com/">
-          <ScaffoldSVG
-            loading="lazy"
-            width={100}
-            height={100}
-            className="cover-illustration"
-          />
-          <h2 className="card-title">UseScaffold</h2>
-          Eleventy Digital eComm Website
-        </a>
-        <a
-          className="code-source"
-          href="https://github.com/jasontcrabtree/usescaffold">
-          Code Source
-        </a>
-      </li>
+      <ProjectItem
+        link='https://usescaffold.com/'
+        title='Visit Again'
+        codeSrc='https://github.com/jasontcrabtree/usescaffold' description='Eleventy Digital eComm Website'
+        illustration={<></>}
+      />
+      <ProjectItem
+        link='https://usescaffold.com/'
+        title='Bondbridge (CRM Clone)'
+        codeSrc='https://github.com/jasontcrabtree/usescaffold' description='Eleventy Digital eComm Website'
+        illustration={<></>}
+      />
+      <ProjectItem
+        link='https://usescaffold.com/'
+        title='Sage Midwife Coaching'
+        codeSrc='https://github.com/jasontcrabtree/usescaffold' description='Eleventy Digital eComm Website'
+        illustration={<></>}
+      />
+      <ProjectItem
+        link='https://sales-emails.netlify.app/'
+        title='Sales-Email App'
+        codeSrc='https://github.com/jasontcrabtree/sales-emails' description='NextJS App: Cold-Email Starters'
+        illustration={<SalesEmailsAppSVG
+          loading="lazy"
+          width={100}
+          height={100}
+          className="cover-illustration"
+        />}
+      />
+      <ProjectItem
+        link='https://sapwood.netlify.app/'
+        title='Sapwood Demo'
+        codeSrc='https://github.com/jasontcrabtree/sapwood-example-website' description='Demo Website: GatsbyJS & Prismic'
+        illustration={<SapwoodSVG
+          loading="lazy"
+          width={100}
+          height={100}
+          className="cover-illustration"
+        />}
+      />
+      <ProjectItem
+        link='https://usescaffold.com/'
+        title='UseScaffold'
+        codeSrc='https://github.com/jasontcrabtree/usescaffold' description='Eleventy Digital eComm Website'
+        illustration={<ScaffoldSVG
+          loading="lazy"
+          width={100}
+          height={100}
+          className="cover-illustration"
+        />}
+      />
+      {/*
       <li className="websites-list-card">
         <a href="https://sapwood.netlify.app/">
           <SapwoodSVG
@@ -137,23 +197,6 @@ function WebsiteProjects() {
         </a>
       </li>
       <li className="websites-list-card">
-        <a href="https://use-underscore.netlify.app/">
-          <WireframeSVG
-            loading="lazy"
-            width={100}
-            height={100}
-            className="cover-illustration"
-          />
-          <h2 className="card-title">Underscore</h2>
-          NextJS: A tiny BEM CSS playground
-        </a>
-        <a
-          className="code-source"
-          href="https://github.com/jasontcrabtree/underscore">
-          Code Source
-        </a>
-      </li>
-      <li className="websites-list-card">
         <a href="https://charactercounter.netlify.app/">
           <CharacterCounterSVG
             width={100}
@@ -168,19 +211,7 @@ function WebsiteProjects() {
           href="https://github.com/jasontcrabtree/CharacterCounter">
           Code Source
         </a>
-      </li>
-      <li className="websites-list-card">
-        <a href="https://codepen.io/jasontcrabtree/pen/qBbQXJP">
-          <CSSPosterSVG
-            loading="lazy"
-            width={100}
-            height={100}
-            className="cover-illustration"
-          />
-          <h2 className="card-title">CSS Poster Layout</h2>
-          CodePen Public Link
-        </a>
-      </li>
+      </li>*/}
     </WebsiteProjectsStyles>
   );
 }
