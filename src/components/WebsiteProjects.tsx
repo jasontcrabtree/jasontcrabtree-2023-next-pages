@@ -92,7 +92,12 @@ const ProjectItem = ({ link, illustration, title, description, codeSrc }: {
   return (
     <li className="websites-list-card">
       <a href={link}>
-        {illustration ? illustration : null}
+        {illustration ? illustration : <WireframeSVG
+          loading="lazy"
+          width={100}
+          height={100}
+          className="cover-illustration"
+        />}
         <h2 className="card-title">{title}</h2>
         {description ? description : null}
       </a>
@@ -113,20 +118,17 @@ function WebsiteProjects() {
       <ProjectItem
         link='https://usescaffold.com/'
         title='Visit Again'
-        codeSrc='https://github.com/jasontcrabtree/usescaffold' description='Eleventy Digital eComm Website'
-        illustration={<></>}
+        codeSrc='https://github.com/jasontcrabtree/usescaffold' description='Food review web app (NextJS, Prisma, NextAuth, Styled Components)'
       />
       <ProjectItem
         link='https://usescaffold.com/'
         title='Bondbridge (CRM Clone)'
-        codeSrc='https://github.com/jasontcrabtree/usescaffold' description='Eleventy Digital eComm Website'
-        illustration={<></>}
+        codeSrc='https://github.com/jasontcrabtree/usescaffold' description='CRM Clone - Contact & Organisations (NextJS, ASP.NET, Tailwind, Jest)'
       />
       <ProjectItem
         link='https://usescaffold.com/'
         title='Sage Midwife Coaching'
-        codeSrc='https://github.com/jasontcrabtree/usescaffold' description='Eleventy Digital eComm Website'
-        illustration={<></>}
+        codeSrc='https://github.com/jasontcrabtree/usescaffold' description='Small business marketing website (NextJS, Prismic, Netlify forms)'
       />
       <ProjectItem
         link='https://sales-emails.netlify.app/'
@@ -142,7 +144,7 @@ function WebsiteProjects() {
       <ProjectItem
         link='https://sapwood.netlify.app/'
         title='Sapwood Demo'
-        codeSrc='https://github.com/jasontcrabtree/sapwood-example-website' description='Demo Website: GatsbyJS & Prismic'
+        codeSrc='https://github.com/jasontcrabtree/sapwood-example-website' description='Gatsby & Prismic CMS website'
         illustration={<SapwoodSVG
           loading="lazy"
           width={100}
