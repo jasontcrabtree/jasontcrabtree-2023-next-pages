@@ -1,0 +1,22 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/.vscode": true,
+    "**/postcss.config.js": true,
+    "**/.eslintrc.json": true,
+    "**/.gitignore": true,
+    "**/package-lock.json": true,
+    "**/next-env.d.ts": true,
+    "**/tailwind.config.ts": true,
+    "**/next.config.mjs": true,
+    "**/tsconfig.json": true
+  },
+  "explorerExclude.backup": {}
+}

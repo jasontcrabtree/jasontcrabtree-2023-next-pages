@@ -1,114 +1,71 @@
-// import { useRouter } from 'next/router';
-// import ErrorPage from 'next/error';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { MDXRemote } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import Head from 'next/head';
 
-// import { getPostBySlug, getAllPosts } from '../../lib/api';
-// import markdownToHtml from '../../lib/markdownToHtml';
-
-// // import Container from '../../components/container';
-// import PostBody from '../../components/post-body';
-// // import Header from '../../components/header';
-// // import PostHeader from '../../components/post-header';
-// // import Layout from '../../components/layout';
-// // import PostTitle from '../../components/post-title';
-// // import { CMS_NAME } from '../../lib/constants';
-// // import type PostType from '../../interfaces/post';
-
-// // type Props = {
-// //   post: PostType;
-// //   morePosts: PostType[];
-// //   preview?: boolean;
-// // };
-
-// export default function Post({ post, morePosts, preview }: any) {
-//   const router = useRouter();
-//   const title = `${post.title} | Next.js Blog Example with`;
-
-//   if (!router.isFallback && !post?.slug) {
-//     return <ErrorPage statusCode={404} />;
-//   }
-
-//   //   return (
-//   //     <Layout preview={preview}>
-//   //       <Container>
-//   //         <Header />
-//   //         {router.isFallback ? (
-//   //           <PostTitle>Loading…</PostTitle>
-//   //         ) : (
-//   //           <>
-//   //             <article className="mb-32">
-//   //               <Head>
-//   //                 <title>{title}</title>
-//   //                 <meta property="og:image" content={post.ogImage.url} />
-//   //               </Head>
-//   //               <PostHeader
-//   //                 title={post.title}
-//   //                 coverImage={post.coverImage}
-//   //                 date={post.date}
-//   //                 author={post.author}
-//   //               />
-//   //               <PostBody content={post.content} />
-//   //             </article>
-//   //           </>
-//   //         )}
-//   //       </Container>
-//   //     </Layout>
-//   //   );
-
-//   return (
-//     <div>
-//       <h1>hi</h1>
-//       <PostBody content={post.content} />
-//     </div>
-//   );
-// }
-
-// type Params = {
-//   params: {
-//     slug: string;
-//   };
-// };
-
-// export async function getStaticProps({ params }: Params) {
-//   const post = getPostBySlug(params.slug, [
-//     'title',
-//     'date',
-//     'slug',
-//     'author',
-//     'content',
-//     'ogImage',
-//     'coverImage',
-//   ]);
-//   const content = await markdownToHtml(post.content || '');
-
-//   return {
-//     props: {
-//       post: {
-//         ...post,
-//         content,
-//       },
-//     },
-//   };
-// }
-
-// export async function getStaticPaths() {
-//   const posts = getAllPosts(['slug']);
-
-//   return {
-//     paths: posts.map(post => {
-//       return {
-//         params: {
-//           slug: post.slug,
-//         },
-//       };
-//     }),
-//     fallback: false,
-//   };
-// }
-
-export default function BlogPlaceholder() {
-  return (
-    <div>
-      <h1>Coming Soon</h1>
-    </div>
-  );
+interface PostMetadata {
+  title: string;
+  date?: string;
 }
+
+interface PostPageProps {
+  source: any;
+  frontmatter: PostMetadata;
+}
+
+const PostPage: NextPage<PostPageProps> = ({ source, frontmatter }) => {
+  return (
+    <article>
+      <Head>
+        <title>{frontmatter.title}</title>
+      </Head>
+      <h1>{frontmatter.title}</h1>
+      <MDXRemote {...source} />
+    </article>
+  );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const folder = path.join(process.cwd(), 'writing', '_blog-posts');
+  const filenames = fs.readdirSync(folder);
+
+  const paths = filenames
+    .filter(filename => filename.endsWith('.mdx'))
+    .map(filename => ({
+      params: {
+        slug: filename.replace(/\.mdx$/, '')
+      },
+    }));
+
+  return {
+    paths,
+    fallback: false
+  };
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { params } = context;
+  const { slug } = params!;
+
+  const blogDirectory = path.join(process.cwd(), 'writing', '_blog-posts');
+  const filePath = path.join(blogDirectory, `${slug}.mdx`);
+
+  const fileContents = fs.readFileSync(filePath, 'utf8');
+  const {
+    data: frontmatter,
+    content
+  } = matter(fileContents);
+  const mdxSource = await serialize(content);
+
+  return {
+    props: {
+      source: mdxSource,
+      frontmatter
+    }
+  };
+};
+
+export default PostPage;

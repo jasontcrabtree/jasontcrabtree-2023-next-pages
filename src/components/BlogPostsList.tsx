@@ -1,4 +1,3 @@
-// import { graphql, Link, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import Link from 'next/link';
 

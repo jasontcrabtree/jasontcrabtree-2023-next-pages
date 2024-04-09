@@ -120,22 +120,6 @@ const GlobalLayout = (props: any): any => {
   if (!props) return null;
   const { title, image, location, children } = props;
 
-  // if (location.pathname === '/flight-digital') {
-  //   return (
-  //     <main style={{ backgroundColor: '#000097', height: '100vh' }}>
-  //       {children}
-  //     </main>
-  //   );
-  // }
-
-  // if (location.pathname === '/escape-hatch') {
-  //   return (
-  //     <div>
-  //       <h1>Blog Escape Hatch</h1>
-  //     </div>
-  //   );
-  // }
-
   return (
     <GlobalLayoutStyles className="top-parent-container">
       {/* <SEO image={image} title={title} location={location.pathname} /> */}
