@@ -26,7 +26,7 @@ const BlogPageStyles = styled.main`
 
 function BlogPage() {
   return (
-    <BlogPageStyles>
+    <main>
       <header>
         <h1>Personal Blog</h1>
         <p className="large-paragraph-text">
@@ -46,7 +46,7 @@ function BlogPage() {
           paginationLimit="1000"
         />
       </section>
-    </BlogPageStyles>
+    </main>
   );
 }
 

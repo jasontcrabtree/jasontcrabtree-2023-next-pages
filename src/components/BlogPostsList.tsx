@@ -91,7 +91,7 @@ function BlogPostCard({
   cardWithDescription,
 }: any): any {
   return (
-    <BlogPostCardStyles className="work-list-card">
+    <li className="work-list-card">
       <Link href={slug} className="read">
         <div className="card-details">
           <p className="date--style">Published: {date}</p>
@@ -102,7 +102,7 @@ function BlogPostCard({
           </span>
         </div>
       </Link>
-    </BlogPostCardStyles>
+    </li>
   );
 }
 

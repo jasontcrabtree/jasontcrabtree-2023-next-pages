@@ -121,3 +121,8 @@ article > * > * + * {
 img:not([alt]) {
   filter: blur(5px);
 }
+
+a {
+  display: inline-block;
+  width: fit-content;
+}

@@ -71,7 +71,7 @@ const ContactPageStyles = styled.main`
 
 function ContactPage() {
   return (
-    <ContactPageStyles>
+    <main>
       <header className="contact-header">
         <h1 className="contact-h1-title--style">Getting in touch 👋</h1>
         <p>
@@ -154,7 +154,7 @@ function ContactPage() {
           </fieldset>
         </form>
       </section>
-    </ContactPageStyles>
+    </main>
   );
 }
 

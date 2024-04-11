@@ -114,7 +114,7 @@ const ProjectItem = ({ link, illustration, title, description, codeSrc }: {
 
 function WebsiteProjects() {
   return (
-    <WebsiteProjectsStyles className="work-list-container">
+    <ul className="grid grid-cols-3 gap-2 ">
       <ProjectItem
         link='https://usescaffold.com/'
         title='Visit Again'
@@ -214,7 +214,7 @@ function WebsiteProjects() {
           Code Source
         </a>
       </li>*/}
-    </WebsiteProjectsStyles>
+    </ul>
   );
 }
 

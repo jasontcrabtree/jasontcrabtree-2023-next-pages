@@ -12,7 +12,10 @@
   --primary-blue: #4230b9;
 
   --primary-link-dark: #2cb1bc;
+  --primary-link-dark: #1b9eda;
+
   --teal-800: #11676e;
+  --teal-800: var(--primary-link-dark);
 
   --grey-200: #dfe3f3;
 
@@ -94,6 +97,10 @@ h1 {
 
 h3 {
   font-size: var(--size-28);
+}
+
+article > ul > li {
+  list-style-type: disc;
 }
 
 .post-container > blockquote,
@@ -313,7 +320,7 @@ a:any-link {
   }
 
   a:any-link {
-    color: #2cb1bc;
+    color: var(--teal-800);
   }
 
   .quote-item {

@@ -69,7 +69,7 @@ const DribbbleGalleryStyles = styled.div`
 
 function DribbbleGallery() {
   return (
-    <DribbbleGalleryStyles>
+    <div>
       <ul className="dribbble-gallery--layout">
         <li>
           <figure>
@@ -223,7 +223,7 @@ function DribbbleGallery() {
         </figure>
       </li>  */}
       </ul>
-    </DribbbleGalleryStyles>
+    </div>
   );
 }
 

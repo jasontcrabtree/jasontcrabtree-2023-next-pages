@@ -93,22 +93,30 @@ const GlobalNavStyles = styled.header`
 `;
 
 const GlobalNav = () => (
-  <GlobalNavStyles>
-    <div
-      style={{ boxSizing: `content-box` }}
-      className="nav-dots--layout decoration-dots--color">
-      <svg
-        width="112"
-        height="32"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <circle cx="8" cy="8" r="6" fill="currentColor" />
-        <circle cx="40" cy="8" r="6" fill="currentColor" />
-        <circle cx="72" cy="8" r="6" fill="currentColor" />
-        <circle cx="104" cy="8" r="6" fill="currentColor" />
-      </svg>
-    </div>
-    <nav className="nav-list">
+  <header className='max-w-4xl flex flex-col mx-auto'>
+    {/* <SkipLink /> */}
+    <aside>
+      <Link className="return-home-link" href="/">
+        <div
+          style={{ boxSizing: `content-box` }}
+          className="nav-dots--layout decoration-dots--color">
+          <svg
+            width="112"
+            height="32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="8" r="6" fill="currentColor" />
+            <circle cx="40" cy="8" r="6" fill="currentColor" />
+            <circle cx="72" cy="8" r="6" fill="currentColor" />
+            <circle cx="104" cy="8" r="6" fill="currentColor" />
+          </svg>
+        </div>
+        <h2 className="return-home-h2--color return-home-h2--type">
+          Jason Crabtree
+        </h2>
+      </Link>
+    </aside>
+    <nav className="flex md:flex-col flex-row gap-1">
       <Link href="/#hero">Home</Link>
       <Link href="/contact">Contact</Link>
       <a
@@ -121,7 +129,7 @@ const GlobalNav = () => (
       </Link>
       {/* <Link href="/blog">Blog</Link> */}
     </nav>
-  </GlobalNavStyles>
+  </header>
 );
 
 export default GlobalNav;

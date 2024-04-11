@@ -111,7 +111,7 @@ const FooterStyles = styled.footer`
 
 function GlobalFooter() {
   return (
-    <FooterStyles>
+    <footer className='w-full flex md:flex-row gap-4 p-4'>
       <section className="footer-text--layout footer-text-style">
         <h3>With thanks</h3>
         <p>
@@ -154,11 +154,11 @@ function GlobalFooter() {
           {/* <Link href="/snippets">Snippets</Link> */}
         </nav>
       </section>
-      <section className="footer-subscribe--layout">
+      {/* <section className="footer-subscribe--layout">
         <h3>Newsletter</h3>
         <NewsletterSubscriptionForm />
-      </section>
-    </FooterStyles>
+      </section> */}
+    </footer>
   );
 }
 

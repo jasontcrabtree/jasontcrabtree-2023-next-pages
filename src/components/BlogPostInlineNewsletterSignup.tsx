@@ -14,10 +14,10 @@ const BlogPostInlineNewsletterSignupStyles = styled.main`
 
 function BlogPostInlineNewsletterSignup() {
   return (
-    <BlogPostInlineNewsletterSignupStyles>
+    <main>
       <h3>Enjoying the post?</h3>
       <NewsletterSubscriptionForm />
-    </BlogPostInlineNewsletterSignupStyles>
+    </main>
   );
 }
 
