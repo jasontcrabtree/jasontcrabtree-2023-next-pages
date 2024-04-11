@@ -111,53 +111,55 @@ const FooterStyles = styled.footer`
 
 function GlobalFooter() {
   return (
-    <footer className='w-full flex md:flex-row gap-4 p-4'>
-      <section className="footer-text--layout footer-text-style">
-        <h3>With thanks</h3>
-        <p>
-          Made with care in <strong>Auckland, New Zealand</strong>
-        </p>
-        <p>
-          An online spot to try new things, talk about what I'm learning, and
-          generally share!
-        </p>
-        <p>
-          Built using <a href="https://nextjs.org/">NextJS</a>,{' '}
-          <a href="https://www.netlify.com/">Netlify</a>,{' '}
-          <a href="https://www.netlify.com/">Styled Components</a>,{' '}
-          <a href="https://github.com/jasontcrabtree">GitHub</a>, and{' '}
-          <a href="https://buttondown.email/">Buttondown</a>
-        </p>
-        <p>
-          <small>
-            &copy; Copyright 2018-{new Date().getFullYear()} Jason Crabtee.
-            <br />
-            All rights reserved.
-          </small>
-        </p>
-      </section>
-      <section>
-        <h3>Social</h3>
-        {/* <Social className="social-parent" /> */}
-        <SocialProfiles />
-      </section>
-      <section>
-        <h3>Explore</h3>
-        <nav aria-label="footer-nav" className="footer-list">
-          <Link href="/">Home</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/">Résumé</Link>
-          <Link className="nav-hidden" href="/#code">
-            Work
-          </Link>
-          {/* <Link href="/blog">Blog</Link> */}
-          {/* <Link href="/snippets">Snippets</Link> */}
-        </nav>
-      </section>
-      {/* <section className="footer-subscribe--layout">
+    <footer className='w-full flex justify-center mt-auto p-8'>
+      <div className="flex w-full max-w-3xl md:flex-row md:gap-16 justify-between">
+        <section className="footer-text--layout footer-text-style max-w-96">
+          <h3 className='font-bold text-xl'>With thanks</h3>
+          <p>
+            Made with care in <strong>Auckland, New Zealand</strong>
+          </p>
+          <p>
+            An online spot to try new things, talk about what I'm learning, and
+            generally share!
+          </p>
+          <p>
+            Built using <a href="https://nextjs.org/">NextJS</a>,{' '}
+            <a href="https://www.netlify.com/">Netlify</a>,{' '}
+            <a href="https://www.netlify.com/">Styled Components</a>,{' '}
+            <a href="https://github.com/jasontcrabtree">GitHub</a>, and{' '}
+            <a href="https://buttondown.email/">Buttondown</a>
+          </p>
+          <p>
+            <small>
+              &copy; Copyright 2018-{new Date().getFullYear()} Jason Crabtee.
+              <br />
+              All rights reserved.
+            </small>
+          </p>
+        </section>
+        <section>
+          <h3 className='font-bold text-xl mb-[8px]'>Social</h3>
+          {/* <Social className="social-parent" /> */}
+          <SocialProfiles />
+        </section>
+        <section className='flex flex-col gap-1'>
+          <h3 className='font-bold text-xl'>Explore</h3>
+          <nav aria-label="footer-nav" className="flex flex-col gap-1">
+            <Link href="/">Home</Link>
+            <Link href="/contact">Contact</Link>
+            <Link href="/">Résumé</Link>
+            <Link className="nav-hidden" href="/#code">
+              Work
+            </Link>
+            {/* <Link href="/blog">Blog</Link> */}
+            {/* <Link href="/snippets">Snippets</Link> */}
+          </nav>
+        </section>
+        {/* <section className="footer-subscribe--layout">
         <h3>Newsletter</h3>
         <NewsletterSubscriptionForm />
       </section> */}
+      </div>
     </footer>
   );
 }

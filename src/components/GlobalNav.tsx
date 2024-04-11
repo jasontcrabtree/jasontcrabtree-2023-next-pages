@@ -93,30 +93,29 @@ const GlobalNavStyles = styled.header`
 `;
 
 const GlobalNav = () => (
-  <header className='max-w-4xl flex flex-col mx-auto'>
+  <header className='max-w-3xl w-full flex md:flex-row flex-col justify-between mx-auto pt-8'>
     {/* <SkipLink /> */}
     <aside>
-      <Link className="return-home-link" href="/">
-        <div
+      <Link className="return-home-link flex-row" href="/">
+        {/* <div
           style={{ boxSizing: `content-box` }}
           className="nav-dots--layout decoration-dots--color">
           <svg
-            width="112"
+            width="80"
             height="32"
             fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <circle cx="8" cy="8" r="6" fill="currentColor" />
             <circle cx="40" cy="8" r="6" fill="currentColor" />
             <circle cx="72" cy="8" r="6" fill="currentColor" />
-            <circle cx="104" cy="8" r="6" fill="currentColor" />
           </svg>
-        </div>
+        </div> */}
         <h2 className="return-home-h2--color return-home-h2--type">
           Jason Crabtree
         </h2>
       </Link>
     </aside>
-    <nav className="flex md:flex-col flex-row gap-1">
+    <nav className="flex md:flex-row flex-col gap-6">
       <Link href="/#hero">Home</Link>
       <Link href="/contact">Contact</Link>
       <a

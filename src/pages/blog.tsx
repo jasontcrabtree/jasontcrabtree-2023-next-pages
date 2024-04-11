@@ -26,7 +26,7 @@ const BlogPageStyles = styled.main`
 
 function BlogPage() {
   return (
-    <main>
+    <main className='max-w-3xl'>
       <header>
         <h1>Personal Blog</h1>
         <p className="large-paragraph-text">

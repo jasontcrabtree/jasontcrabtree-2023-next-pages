@@ -17,7 +17,7 @@ import CustomLazyImage from '../components/CustomLazyImage';
 
 export default function Home() {
   return (
-    <>
+    <div className='flex flex-col items-center'>
       <Head>
         <title>Jason Crabtree | Full Stack Developer</title>
         <meta
@@ -27,19 +27,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.svg" />
       </Head>
-      <main className='flex flex-col 2xl:flex-row'>
+      <main className='w-full max-w-3xl flex flex-col gap-8 items-center'>
         {/* <SEO /> */}
-        <section className="flex flex-col gap-2" id="hero">
-          <div className="flex flex-col md:flex-row gap-4 items-center">
+        <section className="flex flex-col gap-4 items-center w-full" id="hero">
+          <h1 className="text-[56px] bg-indigo-900 text-white dark:bg-indigo-950 dark:text-white p-4 w-fit font-bold">
+            Full Stack Developer in Auckland, New Zealand
+          </h1>
+          <div className="flex flex-row gap-8 w-full">
             <SocialProfiles />
-            <h1 className="text-4xl bg-indigo-800 text-white dark:bg-white dark:text-white p-4 w-fit">
-              Full Stack Developer in
-              <br />
-              Auckland, New Zealand
-            </h1>
-          </div>
-          <div className="">
-            <div className="">
+            <div className="text-pretty max-w-prose">
               <p className="">
                 Hello, I’m Jason. I'm a Full Stack Developer passionate about
                 JavaScript, TypeScript, React, NextJS, NodeJS, GraphQL, and
@@ -61,8 +57,8 @@ export default function Home() {
 
         {/* <hr /> */}
 
-        <section className="" id="code">
-          <h2 className="">Website Projects</h2>
+        <section className="w-full" id="code">
+          <h2 className="text-3xl font-bold mb-6">Website Projects</h2>
           <WebsiteProjects />
         </section>
 
@@ -94,6 +90,6 @@ export default function Home() {
           <DribbbleGallery />
         </section> */}
       </main>
-    </>
+    </div>
   );
 }

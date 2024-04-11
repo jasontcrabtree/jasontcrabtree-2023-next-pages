@@ -90,20 +90,22 @@ const ProjectItem = ({ link, illustration, title, description, codeSrc }: {
   codeSrc?: string
 }) => {
   return (
-    <li className="websites-list-card">
+    <li className="shadow-lg rounded-lg p-6 grid place-content-center gap-4 dark:bg-indigo-950">
       <a href={link}>
         {illustration ? illustration : <WireframeSVG
           loading="lazy"
           width={100}
           height={100}
-          className="cover-illustration"
+          className="shadow-xs rounded-lg transform rotate-[-4deg]"
         />}
-        <h2 className="card-title">{title}</h2>
-        {description ? description : null}
+        <h2 className="text-blue-500">
+          {title}
+        </h2>
+        {description ? (<p className='text-sm'>{description}</p>) : null}
       </a>
       {codeSrc ? (
         <a
-          className="code-source"
+          className="font-semibold  no-underline text-black"
           href={codeSrc}>
           Code Source
         </a>
@@ -112,108 +114,62 @@ const ProjectItem = ({ link, illustration, title, description, codeSrc }: {
   )
 }
 
+const projects = [
+  {
+    link: 'https://usescaffold.com/',
+    title: 'Visit Again',
+    codeSrc: 'https://github.com/jasontcrabtree/usescaffold',
+    description: 'Food review web app (NextJS, Prisma, NextAuth, Styled Components)'
+  },
+  {
+    link: 'https://usescaffold.com/',
+    title: 'Bondbridge (CRM Clone)',
+    codeSrc: 'https://github.com/jasontcrabtree/usescaffold',
+    description: 'CRM Clone - Contact & Organisations (NextJS, ASP.NET, Tailwind, Jest)'
+  },
+  {
+    link: 'https://usescaffold.com/',
+    title: 'Sage Midwife Coaching',
+    codeSrc: 'https://github.com/jasontcrabtree/usescaffold',
+    description: 'Small business marketing website (NextJS, Prismic, Netlify forms)'
+  },
+  {
+    link: 'https://sales-emails.netlify.app/',
+    title: 'Sales-Email App',
+    codeSrc: 'https://github.com/jasontcrabtree/sales-emails',
+    description: 'NextJS App: Cold-Email Starters',
+    illustration: <SalesEmailsAppSVG loading="lazy" width={100} height={100} className="cover-illustration" />
+  },
+  {
+    link: 'https://sapwood.netlify.app/',
+    title: 'Sapwood Demo',
+    codeSrc: 'https://github.com/jasontcrabtree/sapwood-example-website',
+    description: 'Gatsby & Prismic CMS website',
+    illustration: <SapwoodSVG loading="lazy" width={100} height={100} className="cover-illustration" />
+  },
+  {
+    link: 'https://usescaffold.com/',
+    title: 'UseScaffold',
+    codeSrc: 'https://github.com/jasontcrabtree/usescaffold',
+    description: 'Eleventy Digital eComm Website',
+    illustration: <ScaffoldSVG loading="lazy" width={100} height={100} className="cover-illustration" />
+  }
+];
+
+
 function WebsiteProjects() {
   return (
-    <ul className="grid grid-cols-3 gap-2 ">
-      <ProjectItem
-        link='https://usescaffold.com/'
-        title='Visit Again'
-        codeSrc='https://github.com/jasontcrabtree/usescaffold' description='Food review web app (NextJS, Prisma, NextAuth, Styled Components)'
-      />
-      <ProjectItem
-        link='https://usescaffold.com/'
-        title='Bondbridge (CRM Clone)'
-        codeSrc='https://github.com/jasontcrabtree/usescaffold' description='CRM Clone - Contact & Organisations (NextJS, ASP.NET, Tailwind, Jest)'
-      />
-      <ProjectItem
-        link='https://usescaffold.com/'
-        title='Sage Midwife Coaching'
-        codeSrc='https://github.com/jasontcrabtree/usescaffold' description='Small business marketing website (NextJS, Prismic, Netlify forms)'
-      />
-      <ProjectItem
-        link='https://sales-emails.netlify.app/'
-        title='Sales-Email App'
-        codeSrc='https://github.com/jasontcrabtree/sales-emails' description='NextJS App: Cold-Email Starters'
-        illustration={<SalesEmailsAppSVG
-          loading="lazy"
-          width={100}
-          height={100}
-          className="cover-illustration"
-        />}
-      />
-      <ProjectItem
-        link='https://sapwood.netlify.app/'
-        title='Sapwood Demo'
-        codeSrc='https://github.com/jasontcrabtree/sapwood-example-website' description='Gatsby & Prismic CMS website'
-        illustration={<SapwoodSVG
-          loading="lazy"
-          width={100}
-          height={100}
-          className="cover-illustration"
-        />}
-      />
-      <ProjectItem
-        link='https://usescaffold.com/'
-        title='UseScaffold'
-        codeSrc='https://github.com/jasontcrabtree/usescaffold' description='Eleventy Digital eComm Website'
-        illustration={<ScaffoldSVG
-          loading="lazy"
-          width={100}
-          height={100}
-          className="cover-illustration"
-        />}
-      />
-      {/*
-      <li className="websites-list-card">
-        <a href="https://sapwood.netlify.app/">
-          <SapwoodSVG
-            loading="lazy"
-            width={100}
-            height={100}
-            className="cover-illustration"
-          />
-          <h2 className="card-title">Sapwood Demo</h2>
-          Demo Website: GatsbyJS & Prismic
-        </a>{' '}
-        <a
-          className="code-source"
-          href="https://github.com/jasontcrabtree/sapwood-example-website">
-          Code Source
-        </a>
-      </li>
-      <li className="websites-list-card">
-        <a href="https://sales-emails.netlify.app/">
-          <SalesEmailsAppSVG
-            loading="lazy"
-            width={100}
-            height={100}
-            className="cover-illustration"
-          />
-          <h2 className="card-title">Sales-Email App</h2>
-          NextJS App: Cold-Email Starters
-        </a>
-        <a
-          className="code-source"
-          href="https://github.com/jasontcrabtree/sales-emails">
-          Code Source
-        </a>
-      </li>
-      <li className="websites-list-card">
-        <a href="https://charactercounter.netlify.app/">
-          <CharacterCounterSVG
-            width={100}
-            height={100}
-            className="cover-illustration"
-          />
-          <h2 className="card-title">Character Counter</h2>
-          Micro Website: Counts Characters
-        </a>
-        <a
-          className="code-source"
-          href="https://github.com/jasontcrabtree/CharacterCounter">
-          Code Source
-        </a>
-      </li>*/}
+    <ul className="grid grid-cols-3 gap-2 w-full md:p-0">
+      {projects.map((project, index) => (
+        <ProjectItem
+          key={index}
+          link={project.link}
+          title={project.title}
+          codeSrc={project.codeSrc}
+          description={project.description}
+          illustration={project.illustration}
+        />
+      ))}
     </ul>
   );
 }

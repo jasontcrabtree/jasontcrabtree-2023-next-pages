@@ -144,7 +144,7 @@ const CodePenSvgIcon = () => {
 
 function SocialProfiles() {
   return (
-    <ul className="hero-social-list social-parent">
+    <ul className="flex flex-col gap-1">
       <li>
         <a aria-label="email-link" href="mailto:jasontcrabtree@gmail.com">
           <EmailSvgIcon />

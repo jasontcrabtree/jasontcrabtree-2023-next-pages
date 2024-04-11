@@ -16,15 +16,13 @@ const GlobalLayout = (props: any): any => {
   const { title, image, location, children } = props;
 
   return (
-    <>
+    <div className='flex flex-col justify-start gap-8 h-full min-h-[100vh]'>
       <BgColumn />
-      <div className='w-auto p-8 flex md:flex-row flex-col space-between'>
-        {/* <SEO image={image} title={title} location={location.pathname} /> */}
-        <GlobalNav />
-        <div className='max-w-22xl flex flex-col mx-auto'>{children}</div>
-      </div>
+      {/* <SEO image={image} title={title} location={location.pathname} /> */}
+      <GlobalNav />
+      <div className='w-full flex flex-col mx-auto'>{children}</div>
       <GlobalFooter />
-    </>
+    </div>
   );
 };
 

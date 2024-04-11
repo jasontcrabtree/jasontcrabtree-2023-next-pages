@@ -20,14 +20,14 @@ const BgColumnStyles = styled.div`
   }
 `;
 
-const style = 1 === 1 ? {
+const style = {
   background: `linear-gradient(180deg,
       var(--blue-white-100)0%,
-      var(--med-blue) 100%)`
-} : {};
+      var(--med-blue) 100%)
+  `};
 
 function BgColumn() {
-  return <div style={style} className="z-[-10] absolute w-[200px] opacity-10 ml-[64vw] top-0 bottom-0
+  return <div style={style} className="z-[-10] absolute w-[200px] opacity-10 ml-[72vw] h-[125vh] max-h-screen top-0 bottom-0 overflow-hidden
   " />;
 }
 

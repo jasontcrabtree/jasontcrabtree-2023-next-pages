@@ -158,13 +158,6 @@ article > .post-container > h5 {
   margin-bottom: -24px;
 }
 
-ol > li,
-ul > li,
-li {
-  /* margin-bottom: var(--size-16); */
-  padding-bottom: 8px;
-}
-
 ol,
 ul {
   list-style-position: outside;
@@ -409,4 +402,8 @@ ul li > ul {
 
 [data-theme='dark'] {
   --white-100: red;
+}
+
+* > p + p {
+  margin-top: 8px;
 }
