@@ -17,7 +17,7 @@ const GlobalLayout = (props: any): any => {
 
   return (
     <div className='flex flex-col justify-start gap-8 h-full min-h-[100vh]'>
-      <BgColumn />
+      {/* <BgColumn /> */}
       {/* <SEO image={image} title={title} location={location.pathname} /> */}
       <GlobalNav />
       <div className='w-full flex flex-col mx-auto'>{children}</div>

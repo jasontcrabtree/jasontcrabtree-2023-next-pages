@@ -26,27 +26,29 @@ const BlogPageStyles = styled.main`
 
 function BlogPage() {
   return (
-    <main className='max-w-3xl'>
-      <header>
-        <h1>Personal Blog</h1>
-        <p className="large-paragraph-text">
-          A personal and professional blog by{' '}
-          <a href="http://twitter.com/jasontcrabtree">@jasontcrabtree.</a> I
-          write about learning Front-End Development, Product Design, Product
-          Development and how they all tie together.
-        </p>
-      </header>
+    <div className='w-full flex flex-col items-center'>
+      <main className='max-w-3xl flex flex-col gap-8'>
+        <header>
+          <h1 className='text-3xl pb-2'>Personal Blog</h1>
+          <p className="max-w-prose">
+            A personal and professional blog by{' '}
+            <a href="http://twitter.com/jasontcrabtree">@jasontcrabtree.</a> I
+            write about learning Front-End Development, Product Design, Product
+            Development and how they all tie together.
+          </p>
+        </header>
 
-      <section className="blog-list-section--layout">
-        <h2>Latest Posts:</h2>
+        <section className="blog-list-section--layout">
+          <h2 className='text-2xl'>Latest Posts:</h2>
 
-        <BlogPostsList
-          className="work-list-container"
-          cardWithDescription
-          paginationLimit="1000"
-        />
-      </section>
-    </main>
+          <BlogPostsList
+            className=""
+            cardWithDescription
+            paginationLimit="1000"
+          />
+        </section>
+      </main>
+    </div>
   );
 }
 

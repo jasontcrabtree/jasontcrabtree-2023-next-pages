@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import Link from 'next/link';
 
 const BlogPostCardStyles = styled.li`
@@ -106,34 +107,15 @@ function BlogPostCard({
   );
 }
 
-function BlogPostsList({ cardWithDescription, paginationLimit }: any): any {
-  // const data = useStaticQuery(graphql`
-  //   query allBlogPosts {
-  //     allMdx(
-  //       sort: { fields: frontmatter___date, order: DESC }
-  //       filter: { frontmatter: { type: { nin: ["case-study", "snippet"] } } }
-  //     ) {
-  //       nodes {
-  //         slug: id
-  //         frontmatter {
-  //           title
-  //           image
-  //           description
-  //           date(formatString: "D MM YYYY")
-  //         }
-  //       }
-  //     }
-  //   }
-  // `);
-
-  // const blogPostItem = data.allMdx?.nodes || [];
+const BlogPostsList = (props: any) => {
+  console.log('props', props)
   const blogPostItem: any[] = [];
 
   return (
     <ul className="work-list-container">
       {blogPostItem ? (
         blogPostItem
-          .slice(0, paginationLimit)
+          .slice(0)
           .map((item, i) => (
             <BlogPostCard
               key={i}
@@ -141,7 +123,7 @@ function BlogPostsList({ cardWithDescription, paginationLimit }: any): any {
               description={item.frontmatter.description}
               date={item.frontmatter.date}
               slug={`/blog/${item.slug}`}
-              cardWithDescription={cardWithDescription}
+            // cardWithDescription={cardWithDescription}
             />
           ))
       ) : (
