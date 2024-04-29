@@ -3,6 +3,7 @@ import Link from 'next/link';
 import '@/styles/reset.css';
 import '@/styles/globalType.css';
 import '@/styles/styles.css';
+import '@/styles/blog.css';
 import '@/styles/tailwind.css';
 
 import GlobalFooter from '../components/GlobalFooter';

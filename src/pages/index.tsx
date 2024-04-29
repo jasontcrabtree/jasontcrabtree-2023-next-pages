@@ -68,8 +68,6 @@ export default function Home({ blogPosts }: { blogPosts: [] }) {
           <WebsiteProjects />
         </section>
 
-        <hr />
-
         {/* <section className="" id="design">
           <h2 className="work-title">Design Case Studies</h2>
           <CaseStudiesList className="" />

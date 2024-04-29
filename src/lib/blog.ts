@@ -30,4 +30,6 @@ export const allWritingOrderedByDate = (folderName: string) => {
       return -1;
     }
   });
+
+  return postsByDate;
 };
