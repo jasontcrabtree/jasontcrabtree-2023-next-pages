@@ -25,7 +25,7 @@ const ProjectItem = ({ link, illustration, title, description, codeSrc }: {
             />
           }
         </div>
-        <h2 className="text-blue-500 mt-4 text-lg">
+        <h2 className="text-indigo-700 mt-4 text-lg">
           {title}
         </h2>
         {description ? (<p className='md:text-sm text-base'>{description}</p>) : null}

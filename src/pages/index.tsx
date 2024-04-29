@@ -8,8 +8,13 @@ import WebsiteProjects from '../components/WebsiteProjects';
 import SocialProfiles from '../components/SocialProfiles';
 import BlogPostsList from '../components/BlogPostsList';
 import CustomLazyImage from '../components/CustomLazyImage';
+import { serialize } from 'next-mdx-remote/serialize';
+import { allWritingOrderedByDate } from '@/lib/blog';
 
-export default function Home({ blogPostPaths }: { blogPostPaths: string[] }) {
+export default function Home({ blogPosts }: { blogPosts: [] }) {
+
+  console.log('blogPosts', blogPosts)
+
   return (
     <div className='flex flex-col items-center'>
       <Head>
@@ -24,12 +29,12 @@ export default function Home({ blogPostPaths }: { blogPostPaths: string[] }) {
       <main className='w-full max-w-3xl flex flex-col md:gap-8 gap-4 items-center p-6 pt-0 md:p-0'>
         {/* <SEO /> */}
         <section className="flex flex-col md:gap-4 gap-6 items-center w-full" id="hero">
-          <h1 className="text-4xl md:text-[56px] bg-indigo-900 text-white dark:bg-indigo-950 dark:text-white p-4 w-fit font-bold">
+          <h1 className="text-4xl md:text-[56px] bg-indigo-900 text-white dark:bg-indigo-950 dark:text-white p-4 w-fit font-bold text-center">
             Full Stack Developer in Auckland, New Zealand
           </h1>
           <div className="flex md:flex-row flex-col md:gap-8 gap-2 w-full">
             <SocialProfiles />
-            <div className="text-pretty max-w-prose text-lg md:text-base">
+            <div className="text-pretty max-w-[72ch] text-lg md:text-base">
               <p className="">
                 Hello, I’m Jason. I'm a Full Stack Developer passionate about
                 JavaScript, TypeScript, React, NextJS, NodeJS, GraphQL, and
@@ -49,18 +54,18 @@ export default function Home({ blogPostPaths }: { blogPostPaths: string[] }) {
           </div>
         </section>
 
-        {/* <hr /> */}
+        <hr />
+
+        <section className="w-full">
+          <h2 className="text-3xl font-bold mb-6 mt-4 md:mt-4">Latest Blog Posts</h2>
+          <BlogPostsList posts={blogPosts} paginationLimit={3} />
+        </section>
+
+        <hr />
 
         <section className="w-full" id="code">
           <h2 className="text-3xl font-bold mb-6 mt-4 md:mt-4">Website Projects</h2>
           <WebsiteProjects />
-        </section>
-
-        {/* <hr /> */}
-
-        <section className="">
-          <h2 className="">Latest Blog Posts</h2>
-          <BlogPostsList posts={blogPostPaths} className="" paginationLimit="3" />
         </section>
 
         <hr />
@@ -88,48 +93,12 @@ export default function Home({ blogPostPaths }: { blogPostPaths: string[] }) {
   );
 }
 
-export const getStaticProps = async () => {
-  const folder = path.join(process.cwd(), 'writing', '_blog-posts');
-  const filenames = fs.readdirSync(folder);
-
-  const blogPostPaths = filenames
-    .filter(filename => filename.endsWith('.mdx'))
-    .map(filename => ({
-      slug: filename.replace(/\.mdx$/, '')
-    }));
-
-  const blogPostFrontmatter = blogPostPaths.map((postPath) => {
-    const postContents = fs.readFileSync(`${postPath.slug}.mdx`, 'utf-8');
-
-    console.log('postContents', postContents);
-
-    const { data: frontmatter } = matter(postContents);
-
-    return frontmatter;
-  })
-
-
-  //   const fileContents = fs.readFileSync(filePath, 'utf8');
-  //   const {
-  //     data: frontmatter,
-  //     content
-  //   } = matter(fileContents);
-  //   const mdxSource = await serialize(content);
-
-  //   return {
-  //     props: {
-  //       source: mdxSource,
-  //       frontmatter
-  //     }
-  //   };
-  // };
-
-
+export const getStaticProps = () => {
   return {
     props: {
-      blogPostPaths,
-      blogPostFrontmatter
+      blogPosts: JSON.parse(
+        JSON.stringify(allWritingOrderedByDate('_blog-posts'))
+      )
     },
   };
 }
-

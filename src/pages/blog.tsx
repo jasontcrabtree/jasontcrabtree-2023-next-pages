@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import BlogPostsList from '../components/BlogPostsList';
+import { allWritingOrderedByDate } from '@/lib/blog';
+import { BlogPost } from '@/lib/types';
 
 const BlogPageStyles = styled.main`
   grid-column: 2 / 9;
@@ -24,7 +26,7 @@ const BlogPageStyles = styled.main`
   }
 `;
 
-function BlogPage() {
+function BlogPage({ blogPosts }: { blogPosts: BlogPost[] }) {
   return (
     <div className='w-full flex flex-col items-center'>
       <main className='max-w-3xl flex flex-col gap-8'>
@@ -42,9 +44,8 @@ function BlogPage() {
           <h2 className='text-2xl'>Latest Posts:</h2>
 
           <BlogPostsList
-            className=""
-            cardWithDescription
-            paginationLimit="1000"
+            posts={blogPosts}
+            paginationLimit={1000}
           />
         </section>
       </main>
@@ -53,3 +54,14 @@ function BlogPage() {
 }
 
 export default BlogPage;
+
+export const getStaticProps = () => {
+  return {
+    props: {
+      blogPosts: JSON.parse(
+        JSON.stringify(allWritingOrderedByDate('_blog-posts'))
+      )
+    },
+  };
+}
+
