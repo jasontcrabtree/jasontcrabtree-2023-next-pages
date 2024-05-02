@@ -9,9 +9,9 @@ const SnippetsPageStyles = styled.main`
 
 function SnippetsPage() {
   return (
-    <SnippetsPageStyles>
+    <main>
       <h1>Snippets</h1>
-    </SnippetsPageStyles>
+    </main>
   );
 }
 

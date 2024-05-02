@@ -65,7 +65,7 @@ const WorkListItemStyles = styled.li`
 
 function WorkListItem({ title, image, description, date, slug }: any): any {
   return (
-    <WorkListItemStyles className="work-list-card">
+    <li className="work-list-card">
       <Link href={slug} className="read">
         <CustomLazyImage src={image} alt={title} cls="cover-image" />
         <div className="card-details">
@@ -75,7 +75,7 @@ function WorkListItem({ title, image, description, date, slug }: any): any {
           <span className="card-link">View case study</span>
         </div>
       </Link>
-    </WorkListItemStyles>
+    </li>
   );
 }
 

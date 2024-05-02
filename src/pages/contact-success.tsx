@@ -67,7 +67,7 @@ const ContactSuccessStyles = styled.main`
 
 function ContactSuccess() {
   return (
-    <ContactSuccessStyles>
+    <main>
       <header className="contact-header">
         <h1 className="contact-h1-title--style">Getting in touch 👋</h1>
         <p>
@@ -93,7 +93,7 @@ function ContactSuccess() {
           </p>
         </section>
       </section>
-    </ContactSuccessStyles>
+    </main>
   );
 }
 

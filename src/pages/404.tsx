@@ -24,7 +24,7 @@ const PageNotFound = (props: any) => {
   if (!props) return null;
 
   return (
-    <FourOhFourParentStyles id="main">
+    <main id="main">
       {/* <SEO /> */}
       <header className="four-oh-four-header">
         <h1>Sh*t! Something is broken 🛠</h1>
@@ -36,7 +36,7 @@ const PageNotFound = (props: any) => {
         </p>
       </section>
       <Link href="/">Return Home</Link>
-    </FourOhFourParentStyles>
+    </main>
   );
 };
 
