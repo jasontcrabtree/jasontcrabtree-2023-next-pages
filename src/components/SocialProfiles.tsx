@@ -1,50 +1,49 @@
 import React from 'react';
-import styled from 'styled-components';
 
-const SocialListStyles = styled.ul`
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
-  padding-inline-start: 0px;
+// const SocialListStyles = ul`
+//   list-style-type: none;
+//   margin: 0px;
+//   padding: 0px;
+//   padding-inline-start: 0px;
 
-  li > a {
-    display: flex;
-    align-content: center;
-  }
+//   li > a {
+//     display: flex;
+//     align-content: center;
+//   }
 
-  li {
-    padding: 8px 8px;
-  }
+//   li {
+//     padding: 8px 8px;
+//   }
 
-  @media screen and (min-width: 961px) {
-    li + * {
-      margin-top: 16px;
-    }
-  }
+//   @media screen and (min-width: 961px) {
+//     li + * {
+//       margin-top: 16px;
+//     }
+//   }
 
-  @media screen and (max-width: 961px) {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+//   @media screen and (max-width: 961px) {
+//     display: flex;
+//     flex-direction: row;
+//     flex-wrap: wrap;
 
-    margin-top: 24px !important;
+//     margin-top: 24px !important;
 
-    li + * {
-      margin-top: 0px;
-    }
+//     li + * {
+//       margin-top: 0px;
+//     }
 
-    li {
-      margin: 8px;
-    }
+//     li {
+//       margin: 8px;
+//     }
 
-    li:first-child {
-      margin-left: 0px;
-    }
-    li:last-child {
-      margin-right: 0px;
-    }
-  }
-`;
+//     li:first-child {
+//       margin-left: 0px;
+//     }
+//     li:last-child {
+//       margin-right: 0px;
+//     }
+//   }
+// `;
 
 const LinkedInSvg = () => {
   return (

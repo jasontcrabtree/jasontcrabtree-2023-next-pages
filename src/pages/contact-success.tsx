@@ -1,69 +1,68 @@
 import React from 'react';
-import styled from 'styled-components';
 
-const ContactSuccessStyles = styled.main`
-  display: grid;
-  grid-column: 1/ 9;
+// const ContactSuccessStyles = main`
+//   display: grid;
+//   grid-column: 1/ 9;
 
-  .contact-header > p {
-    margin: 1.4em 0px;
-  }
+//   .contact-header > p {
+//     margin: 1.4em 0px;
+//   }
 
-  p {
-    /* max-width: 72ch; */
-  }
+//   p {
+//     /* max-width: 72ch; */
+//   }
 
-  header > p {
-    max-width: 68ch;
-  }
+//   header > p {
+//     max-width: 68ch;
+//   }
 
-  .contact-form-fieldset--style > * + * {
-    margin-top: 1rem;
-  }
+//   .contact-form-fieldset--style > * + * {
+//     margin-top: 1rem;
+//   }
 
-  .contact-form-fieldset--style {
-    border-radius: 8px;
-    border: 1px solid var(--primary-blue);
-    box-shadow: var(--shadow-medium);
-  }
+//   .contact-form-fieldset--style {
+//     border-radius: 8px;
+//     border: 1px solid var(--primary-blue);
+//     box-shadow: var(--shadow-medium);
+//   }
 
-  @media screen and (min-width: 960px) {
-    .contact-form--layout {
-      display: grid;
-      grid-column: 1/ 5;
-    }
+//   @media screen and (min-width: 960px) {
+//     .contact-form--layout {
+//       display: grid;
+//       grid-column: 1/ 5;
+//     }
 
-    .contact-form-fieldset--style > * > input,
-    .contact-form-fieldset--style > * > select,
-    .contact-form-fieldset--style > * > textarea {
-      width: 60%;
-    }
+//     .contact-form-fieldset--style > * > input,
+//     .contact-form-fieldset--style > * > select,
+//     .contact-form-fieldset--style > * > textarea {
+//       width: 60%;
+//     }
 
-    .contact-form-fieldset--style {
-      padding: 2rem;
-    }
-  }
+//     .contact-form-fieldset--style {
+//       padding: 2rem;
+//     }
+//   }
 
-  @media screen and (max-width: 960px) {
-    .contact-h1-title--style {
-      font-size: var(--size-32);
-    }
+//   @media screen and (max-width: 960px) {
+//     .contact-h1-title--style {
+//       font-size: var(--size-32);
+//     }
 
-    .contact-form-fieldset--style {
-      padding: 8px 16px;
-    }
+//     .contact-form-fieldset--style {
+//       padding: 8px 16px;
+//     }
 
-    .contact-form-fieldset--style > * > input,
-    .contact-form-fieldset--style > * > select,
-    .contact-form-fieldset--style > * > textarea {
-      width: 60%;
-    }
-  }
+//     .contact-form-fieldset--style > * > input,
+//     .contact-form-fieldset--style > * > select,
+//     .contact-form-fieldset--style > * > textarea {
+//       width: 60%;
+//     }
+//   }
 
-  .hidden {
-    display: none;
-  }
-`;
+//   .hidden {
+//     display: none;
+//   }
+// `;
 
 function ContactSuccess() {
   return (

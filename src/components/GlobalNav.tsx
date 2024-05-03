@@ -1,96 +1,95 @@
 import React from 'react';
-import styled from 'styled-components';
 import Link from 'next/link';
 
-const GlobalNavStyles = styled.header`
-  .nav-list {
-    text-align: center;
+// const GlobalNavStyles = .header`
+//   .nav-list {
+//     text-align: center;
 
-    display: flex;
-    flex-direction: column;
-    align-content: space-around;
-  }
+//     display: flex;
+//     flex-direction: column;
+//     align-content: space-around;
+//   }
 
-  margin-top: 24px;
+//   margin-top: 24px;
 
-  height: fit-content;
+//   height: fit-content;
 
-  z-index: 1;
+//   z-index: 1;
 
-  div:first-of-type {
-    margin-bottom: -16px !important;
-  }
+//   div:first-of-type {
+//     margin-bottom: -16px !important;
+//   }
 
-  .decoration-dots--color {
-    color: var(--dots-color);
-  }
+//   .decoration-dots--color {
+//     color: var(--dots-color);
+//   }
 
-  @media screen and (max-width: 960px) {
-    .nav-list {
-      flex-direction: row;
-    }
+//   @media screen and (max-width: 960px) {
+//     .nav-list {
+//       flex-direction: row;
+//     }
 
-    .nav-list {
-      flex-wrap: wrap;
-    }
+//     .nav-list {
+//       flex-wrap: wrap;
+//     }
 
-    .nav-list > * {
-      margin-right: 16px;
-    }
+//     .nav-list > * {
+//       margin-right: 16px;
+//     }
 
-    * {
-      margin: 8px 0;
-    }
-  }
+//     * {
+//       margin: 8px 0;
+//     }
+//   }
 
-  @media screen and (min-width: 960px) {
-    .nav-list {
-      flex-direction: column;
-    }
-    .nav-list {
-      position: static;
-    }
+//   @media screen and (min-width: 960px) {
+//     .nav-list {
+//       flex-direction: column;
+//     }
+//     .nav-list {
+//       position: static;
+//     }
 
-    .nav-list {
-      border-radius: 8px;
-      padding: 0px 8px;
-      width: 112px;
-    }
+//     .nav-list {
+//       border-radius: 8px;
+//       padding: 0px 8px;
+//       width: 112px;
+//     }
 
-    .nav-list {
-      background-color: var(--white-opacity-80);
-    }
+//     .nav-list {
+//       background-color: var(--white-opacity-80);
+//     }
 
-    .nav-list > * {
-      margin: 8px 0px;
-    }
+//     .nav-list > * {
+//       margin: 8px 0px;
+//     }
 
-    grid-row-start: 1;
-    grid-column: 13 / 14;
-  }
+//     grid-row-start: 1;
+//     grid-column: 13 / 14;
+//   }
 
-  @media screen and (max-width: 960px) {
-    .nav-dots--layout {
-      display: none;
-    }
-  }
+//   @media screen and (max-width: 960px) {
+//     .nav-dots--layout {
+//       display: none;
+//     }
+//   }
 
-  @media screen and (max-width: 350px) {
-    max-width: calc(100vw - 32px);
-    width: auto;
-  }
+//   @media screen and (max-width: 350px) {
+//     max-width: calc(100vw - 32px);
+//     width: auto;
+//   }
 
-  @media (prefers-color-scheme: dark) {
-    .nav-list {
-      opacity: 1;
-      background: inherit;
-    }
+//   @media (prefers-color-scheme: dark) {
+//     .nav-list {
+//       opacity: 1;
+//       background: inherit;
+//     }
 
-    .decoration-dots--color {
-      color: var(--dots-color);
-    }
-  }
-`;
+//     .decoration-dots--color {
+//       color: var(--dots-color);
+//     }
+//   }
+// `;
 
 const GlobalNav = () => (
   <header className='max-w-3xl w-full flex md:flex-row flex-col justify-between mx-auto p-6 pb-0 md:p-0 md:pt-8'>

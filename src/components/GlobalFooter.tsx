@@ -22,9 +22,6 @@ function GlobalFooter() {
             <p>
               Built using <Link href="https://nextjs.org/">NextJS</Link>,{' '}
               <Link className='underline' href="https://www.netlify.com/">Netlify</Link>,{' '}
-              <Link className='underline' href="https://www.netlify.com/">
-                Styled Components
-              </Link>,{' '}
               <Link className='underline' href="https://github.com/jasontcrabtree">GitHub</Link>, and{' '}
               <Link className='underline' href="https://buttondown.email/">Buttondown</Link>
             </p>

@@ -1,71 +1,69 @@
-import Link from 'next/link';
-import styled from 'styled-components';
 // import CustomLazyImage from '../utils/CustomLazyImage';
 
-const DribbbleGalleryStyles = styled.div`
-  .dribbble-gallery--layout > * > figure {
-    background: rgb(255, 255, 255);
+// const DribbbleGalleryStyles = div`
+//   .dribbble-gallery--layout > * > figure {
+//     background: rgb(255, 255, 255);
 
-    border: 1px solid var(--blue-white-100);
+//     border: 1px solid var(--blue-white-100);
 
-    box-shadow: var(--shadow-medium);
-    border-radius: 8px;
-  }
+//     box-shadow: var(--shadow-medium);
+//     border-radius: 8px;
+//   }
 
-  .dribbble-gallery--layout > * > figure:hover {
-    box-shadow: var(--shadow-small);
-  }
+//   .dribbble-gallery--layout > * > figure:hover {
+//     box-shadow: var(--shadow-small);
+//   }
 
-  .dribbble-gallery--layout > * > figure > img {
-    border: 1px solid var(--blue-white-100);
-  }
+//   .dribbble-gallery--layout > * > figure > img {
+//     border: 1px solid var(--blue-white-100);
+//   }
 
-  figure {
-    span {
-      img {
-        max-width: 100%;
-        height: auto;
-      }
-    }
-  }
+//   figure {
+//     span {
+//       img {
+//         max-width: 100%;
+//         height: auto;
+//       }
+//     }
+//   }
 
-  .fade-enter-active {
-    transition: opacity 2.5s;
-  }
+//   .fade-enter-active {
+//     transition: opacity 2.5s;
+//   }
 
-  .fade-enter {
-    opacity: 0;
-  }
+//   .fade-enter {
+//     opacity: 0;
+//   }
 
-  .dribbble-gallery--layout > * > figure > figcaption {
-    margin-top: var(--size-16);
-  }
+//   .dribbble-gallery--layout > * > figure > figcaption {
+//     margin-top: var(--size-16);
+//   }
 
-  @media screen and (max-width: 720px) {
-    .dribbble-gallery--layout > * > figure {
-      margin: var(--size-48) 0px;
-      padding: 32px 16px;
-    }
-  }
+//   @media screen and (max-width: 720px) {
+//     .dribbble-gallery--layout > * > figure {
+//       margin: var(--size-48) 0px;
+//       padding: 32px 16px;
+//     }
+//   }
 
-  @media screen and (min-width: 720px) {
-    .dribbble-gallery--layout {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(44%, 1fr));
-      grid-gap: 48px;
-    }
+//   @media screen and (min-width: 720px) {
+//     .dribbble-gallery--layout {
+//       display: grid;
+//       grid-template-columns: repeat(auto-fill, minmax(44%, 1fr));
+//       grid-gap: 48px;
+//     }
 
-    .dribbble-gallery--layout > * > figure {
-      padding: 48px;
-    }
-  }
+//     .dribbble-gallery--layout > * > figure {
+//       padding: 48px;
+//     }
+//   }
 
-  @media (prefers-color-scheme: dark) {
-    .figcaption--layout > a:any-link {
-      color: var(--primary-blue);
-    }
-  }
-`;
+//   @media (prefers-color-scheme: dark) {
+//     .figcaption--layout > a:any-link {
+//       color: var(--primary-blue);
+//     }
+//   }
+// `;
 
 function DribbbleGallery() {
   return (

@@ -1,5 +1,3 @@
-import styled from 'styled-components';
-
 import Link from 'next/link';
 import { BlogPost } from '@/lib/types';
 import { formatDate, truncateString } from '@/lib/utils';

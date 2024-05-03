@@ -1,67 +1,66 @@
 // import { graphql, Link, useStaticQuery } from 'gatsby';
 
 import Link from 'next/link';
-import styled from 'styled-components';
 import CustomLazyImage from '../components/CustomLazyImage';
 
-const WorkListItemStyles = styled.li`
-  .card-details {
-    padding: 20px;
-    margin: auto 0;
-  }
+// const WorkListItemStyles = .li`
+//   .card-details {
+//     padding: 20px;
+//     margin: auto 0;
+//   }
 
-  .cover-image {
-    /* Internal shadow */
-    box-shadow: var(--shadow-extra-small);
-    border-radius: 8px 8px 0 0;
-  }
+//   .cover-image {
+//     /* Internal shadow */
+//     box-shadow: var(--shadow-extra-small);
+//     border-radius: 8px 8px 0 0;
+//   }
 
-  .cover-image {
-    width: auto;
-  }
+//   .cover-image {
+//     width: auto;
+//   }
 
-  .card-details > * {
-    margin-bottom: var(--size-16);
-  }
+//   .card-details > * {
+//     margin-bottom: var(--size-16);
+//   }
 
-  .card-details {
-    padding-bottom: 32px;
-  }
+//   .card-details {
+//     padding-bottom: 32px;
+//   }
 
-  a:any-link {
-    text-decoration: none;
-    color: var(--text-black);
-  }
+//   a:any-link {
+//     text-decoration: none;
+//     color: var(--text-black);
+//   }
 
-  .card-title {
-    color: var(--primary-blue);
-  }
+//   .card-title {
+//     color: var(--primary-blue);
+//   }
 
-  .card-link {
-    text-decoration: underline;
-    color: var(--primary-link);
-    font-weight: bold;
-  }
+//   .card-link {
+//     text-decoration: underline;
+//     color: var(--primary-link);
+//     font-weight: bold;
+//   }
 
-  .date--style {
-    color: var(--subheading-black-blue);
-    text-transform: uppercase;
-    font-weight: 500;
-  }
+//   .date--style {
+//     color: var(--subheading-black-blue);
+//     text-transform: uppercase;
+//     font-weight: 500;
+//   }
 
-  @media screen and (max-width: 960px) {
-    margin: 32px 0px;
+//   @media screen and (max-width: 960px) {
+//     margin: 32px 0px;
 
-    max-width: fit-content;
-    max-width: -moz-max-content; /* Firefox/Gecko */
-    max-width: -webkit-max-content; /* Chrome */
-    padding: 0px;
+//     max-width: fit-content;
+//     max-width: -moz-max-content; /* Firefox/Gecko */
+//     max-width: -webkit-max-content; /* Chrome */
+//     padding: 0px;
 
-    .card-title {
-      font-size: var(--size-24);
-    }
-  }
-`;
+//     .card-title {
+//       font-size: var(--size-24);
+//     }
+//   }
+// `;
 
 function WorkListItem({ title, image, description, date, slug }: any): any {
   return (

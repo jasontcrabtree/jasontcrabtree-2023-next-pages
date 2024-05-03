@@ -1,24 +1,23 @@
 import React from 'react';
 import Link from 'next/link';
 
-import styled from 'styled-components';
 // import SEO from '../components/utils/SEO';
 
-const FourOhFourParentStyles = styled.main`
-  grid-row-start: 2;
-  margin-top: var(--size-48);
+// const FourOhFourParentStyles = main`
+//   grid-row-start: 2;
+//   margin-top: var(--size-48);
 
-  * {
-    margin-bottom: var(--size-40);
-  }
+//   * {
+//     margin-bottom: var(--size-40);
+//   }
 
-  @media screen and (min-width: 960px) {
-    grid-column: 1 / -7;
-    * {
-      margin-bottom: var(--size-72);
-    }
-  }
-`;
+//   @media screen and (min-width: 960px) {
+//     grid-column: 1 / -7;
+//     * {
+//       margin-bottom: var(--size-72);
+//     }
+//   }
+// `;
 
 const PageNotFound = (props: any) => {
   if (!props) return null;
