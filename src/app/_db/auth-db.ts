@@ -1,3 +1,5 @@
+'use server';
+
 import { createPool } from '@vercel/postgres';
 import { genSaltSync, hashSync } from 'bcrypt-ts';
 
