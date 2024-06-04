@@ -19,7 +19,7 @@ export type RemoteBlogPost = {
   slug: string;
   published?: boolean;
   title: string;
-  date: string;
+  date?: string;
   description: string;
   content: string;
 };

@@ -1,3 +1,4 @@
+import { auth } from "../_auth/auth";
 import ClientComponent from "./client-component";
 
 export const metadata = {
@@ -5,7 +6,9 @@ export const metadata = {
     description: '',
 };
 
-const App = () => {
+const App = async () => {
+    const user = await auth();
+    console.log('user', user);
 
     return (
         <ClientComponent />

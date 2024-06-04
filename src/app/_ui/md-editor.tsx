@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from "react";
+import React, { SetStateAction, useState } from "react";
 import MDEditor from '@uiw/react-md-editor';
 import { TextAa } from "@phosphor-icons/react";
 
@@ -14,7 +14,7 @@ const MdEditor = ({
     value: string,
     height: string,
     additionalControls: React.ReactElement,
-    handleValue: any
+    handleValue: (arg: string | undefined) => void
 }) => {
     const [hideToolBar, setHideToolbar] = useState(true);
 
@@ -26,13 +26,10 @@ const MdEditor = ({
                 </h1>
 
                 <div className="flex flex-row gap-4 items-center">
-                    <button className="" onClick={(() => setHideToolbar(!hideToolBar))}>
+                    <button className={`rounded-full p-1 ${!hideToolBar && "bg-gray-700"}`} onClick={(() => setHideToolbar(!hideToolBar))}>
                         <TextAa size={24} />
                     </button>
                     {additionalControls}
-                    <button className="button px-3">
-                        Publish
-                    </button>
                 </div>
             </div>
 
