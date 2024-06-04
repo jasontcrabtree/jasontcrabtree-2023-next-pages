@@ -1,22 +1,22 @@
 'use client';
 import React, { useState } from "react";
 import MDEditor from '@uiw/react-md-editor';
-import { TextAa, SquareHalfBottom } from "@phosphor-icons/react";
+import { TextAa } from "@phosphor-icons/react";
 
 /**
  * MDEditor docs
  * https://uiwjs.github.io/react-md-editor/#props
  */
 const MdEditor = ({
-    heading, value, additionalControls, handleValue
+    heading, value, additionalControls, height, handleValue
 }: {
     heading: string,
     value: string,
+    height: string,
     additionalControls: React.ReactElement,
-    handleValue: (input: string | undefined) => void
+    handleValue: any
 }) => {
     const [hideToolBar, setHideToolbar] = useState(true);
-
 
     return (
         <div data-color-mode="dark">
@@ -37,9 +37,9 @@ const MdEditor = ({
             </div>
 
             <MDEditor
-                className="p-4"
+                className=""
                 enableScroll={true}
-                height="calc(100vh - 112px)"
+                height={height}
                 hideToolbar={hideToolBar}
                 preview="edit"
                 value={value}
