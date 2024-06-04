@@ -1,11 +1,13 @@
 import '@/styles/tailwind.css';
 import AppNav from './_ui/app-nav';
 import { SignOutButton } from './_ui/sign-out-button';
-import { auth } from './_auth/auth';
 
 export const metadata = {
-  title: 'Dashboard | Mark I',
+  title: 'Mark I',
   description: '',
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default async function RootLayout({
@@ -15,11 +17,11 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='bg-zinc-900 text-white flex flex-row min-h-screen'>
+      <body className='bg-zinc-900 text-white flex flex-col sm:flex-row min-h-screen w-full'>
         <AppNav>
           <SignOutButton />
         </AppNav>
-        <main className='m-4 ml-2 rounded-lg shadow-lg bg-zinc-800 w-full'>
+        <main className='m-2 md:m-4 md:ml-2 rounded-lg shadow-lg bg-zinc-800 w-auto sm:w-full'>
           {children}
         </main>
       </body>

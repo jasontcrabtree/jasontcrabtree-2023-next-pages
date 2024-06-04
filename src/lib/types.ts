@@ -1,5 +1,6 @@
 export type BlogPost = {
   slug: string;
+
   meta: {
     title: string;
     date: string;
@@ -12,4 +13,13 @@ export type User = {
   name: string;
   email: string;
   password: string;
+};
+
+export type RemoteBlogPost = {
+  slug: string;
+  published?: boolean;
+  title: string;
+  date: string;
+  description: string;
+  content: string;
 };

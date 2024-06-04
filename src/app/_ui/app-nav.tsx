@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from "next/link";
-import { Cactus } from "@phosphor-icons/react";
+import { Cactus, List, X } from "@phosphor-icons/react";
 
 const AppNav = ({ children }: { children: React.ReactNode }): React.ReactElement => {
     const [isOpen, setIsOpen] = useState(false);
@@ -14,32 +14,40 @@ const AppNav = ({ children }: { children: React.ReactNode }): React.ReactElement
 
     return (
         <>
-            <button
-                className="sm:hidden p-4 text-emerald-500"
-                onClick={toggleSidebar}
-            >
-                ☰
-            </button>
-            <nav
-                className={`p-4 pl-4 pr-2 min-w-[168px] text-emerald-500 min-h-screen flex flex-col fixed top-0 left-0 bg-zinc-900 z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'} sm:relative sm:translate-x-0 sm:flex`}
-            >
-                <button
-                    className="sm:hidden mb-4 text-emerald-500 self-end"
-                    onClick={toggleSidebar}
-                >
-                    ✕
-                </button>
-                <Link className={`${navLinkItem} font-bold uppercase mb-4 text-emerald-300 `} href="/dashboard">
+            <div className="sm:hidden p-4 pb-0 flex flex-row w-full items-center justify-between">
+                <Link className={`${navLinkItem} font-bold uppercase text-emerald-300 `} href="/dashboard">
                     <Cactus size={28} />
                     DASHBOARD
                 </Link>
+                <button
+                    className="p-4 text-emerald-500"
+                    onClick={toggleSidebar}
+                >
+                    <List size={24} />
+                </button>
+            </div>
+            <nav
+                className={`p-4 pb-12 gap-4 min-w-[168px] text-emerald-500 flex flex-col fixed left-0 right-0 bg-zinc-900 z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-y-0' : '-translate-y-full'} sm:relative sm:translate-y-0 sm:flex sm:min-h-screen sm:p-4 sm:pl-4 sm:pr-2`}
+            >
+                <div className='flex flex-row justify-between w-full items-center'>
+                    <Link className={`${navLinkItem} font-bold uppercase sm:mb-4 text-emerald-300`} href="/dashboard">
+                        <Cactus size={28} />
+                        DASHBOARD
+                    </Link>
+                    <button
+                        className="sm:hidden p-4 text-emerald-500"
+                        onClick={toggleSidebar}
+                    >
+                        <X size={24} />
+                    </button>
+                </div>
                 <div className="flex flex-col gap-1">
                     <Link href="" className={`${navLinkItem}`}>
                         ~/Blog
                     </Link>
                     <div className="pl-3">
-                        <Link href="" className={`${navLinkItem} text-zinc-100 py-1 bg-indigo-800 rounded-lg hover:bg-indigo-700`}>
-                            New Blog Post
+                        <Link href="/new-blog-post" className={`button`}>
+                            New Post
                         </Link>
                         <Link href="" className={`${navLinkItem} text-zinc-100 py-1`}>
                             Drafts

@@ -3,28 +3,6 @@ import BlogPostsList from '../components/BlogPostsList';
 import { allWritingOrderedByDate } from '@/lib/blog';
 import { BlogPost } from '@/lib/types';
 
-// const BlogPageStyles = main`
-//   grid-column: 2 / 9;
-
-//   header > * {
-//     margin-bottom: var(--size-32);
-//   }
-
-//   header,
-//   section {
-//     margin: var(--size-32) 0px;
-//   }
-
-//   li {
-//     margin-top: 48px;
-//   }
-
-//   @media screen and (max-width: 960px) {
-//     grid-row-start: 2;
-//     grid-column: 1;
-//   }
-// `;
-
 function BlogPage({ blogPosts }: { blogPosts: BlogPost[] }) {
   return (
     <div className='w-full flex flex-col items-center'>

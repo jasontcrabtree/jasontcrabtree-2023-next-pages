@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.button {
+  @apply border px-3 py-1 flex items-center justify-center rounded gap-1 text-zinc-100 bg-indigo-800  hover:bg-indigo-900 border-indigo-900 shadow;
+}

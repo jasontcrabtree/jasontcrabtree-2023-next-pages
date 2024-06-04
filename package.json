@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^2.0.4",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@next/mdx": "^14.2.3",
     "@phosphor-icons/react": "^2.1.5",
     "@types/mdx": "^2.0.13",
+    "@uiw/react-md-editor": "^4.0.4",
     "@vercel/postgres": "^0.8.0",
     "bcrypt-ts": "^5.0.0",
     "gray-matter": "^4.0.3",
