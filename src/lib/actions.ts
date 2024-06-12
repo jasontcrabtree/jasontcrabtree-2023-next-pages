@@ -1,7 +1,7 @@
 'use server';
 
-import { sql } from '@vercel/postgres';
-import { RemoteBlogPost } from './types';
+import { QueryResult, sql } from '@vercel/postgres';
+import { NewRemoteBlogPost, RemoteBlogPost } from './types';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
@@ -11,8 +11,7 @@ export const createNewBlogPost = async ({
   title,
   content,
   description,
-}: RemoteBlogPost) => {
-  console.log('Value', content);
+}: NewRemoteBlogPost) => {
   try {
     await sql`
         INSERT INTO "remoteblogpost" (slug, published, title, description, content)
@@ -25,4 +24,15 @@ export const createNewBlogPost = async ({
       message: `Datebase error creating new blog post: ${error}`,
     };
   }
+};
+
+export const getAllPosts = async (): Promise<RemoteBlogPost[] | undefined> => {
+  try {
+    const result: QueryResult<RemoteBlogPost> = await sql<RemoteBlogPost>`
+      SELECT *
+      FROM remoteblogpost;
+    `;
+    console.log('posts', result.rows);
+    return result.rows;
+  } catch (error) {}
 };

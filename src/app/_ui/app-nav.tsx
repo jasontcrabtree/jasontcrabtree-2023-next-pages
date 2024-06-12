@@ -42,25 +42,25 @@ const AppNav = ({ children }: { children: React.ReactNode }): React.ReactElement
                     </button>
                 </div>
                 <div className="flex flex-col gap-1">
-                    <Link href="" className={`${navLinkItem}`}>
+                    <Link href="/logbook" className={`${navLinkItem}`}>
+                        ~/Logbook
+                    </Link>
+                    <Link href="/blog" className={`${navLinkItem}`}>
                         ~/Blog
                     </Link>
                     <div className="pl-3">
                         <Link href="/new-blog-post" className={`button`}>
                             New Post
                         </Link>
-                        <Link href="" className={`${navLinkItem} text-zinc-100 py-1`}>
+                        {/* <Link href="/drafts" className={`${navLinkItem} text-zinc-100 py-1`}>
                             Drafts
-                        </Link>
-                        <Link href="" className={`${navLinkItem} text-zinc-100 py-1`}>
+                        </Link> */}
+                        <Link href="/posts" className={`${navLinkItem} text-zinc-100 py-1`}>
                             Posts
                         </Link>
                     </div>
-                    <Link href="" className={`${navLinkItem}`}>
+                    <Link href="/snippets" className={`${navLinkItem}`}>
                         ~/Snippets
-                    </Link>
-                    <Link href="" className={`${navLinkItem}`}>
-                        ~/Flash Cards
                     </Link>
                     <Link href="" className={`${navLinkItem}`}>
                         ~/Study Notes

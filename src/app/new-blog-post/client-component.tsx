@@ -1,23 +1,16 @@
 'use client';
 
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 import MdEditor from "../_ui/md-editor";
 import { SquareHalfBottom } from "@phosphor-icons/react";
-import { useFormState } from "react-dom";
 import { createNewBlogPost } from "@/lib/actions";
-import { RemoteBlogPost } from "@/lib/types";
+import { NewRemoteBlogPost } from "@/lib/types";
 
 export default function ClientComponent() {
     const [blogContents, setBlogContents] = useState<string>("");
     const [halfScreen, setHalfScreen] = useState(false);
 
-    // const initialState: any = {
-    //     message: null,
-    //     errors: {}
-    // }
-    // const [state, formAction] = useFormState(createNewBlogPost, initialState)
-
-    const blogPostValues: RemoteBlogPost = {
+    const blogPostValues: NewRemoteBlogPost = {
         title: "First one!",
         description: "This is submitted via API, cross ya fingers",
         date: new Date().toISOString().split('T')[0],
@@ -32,13 +25,7 @@ export default function ClientComponent() {
                 <div className="bg-gray-700 w-full h-20 rounded-xl overflow-hidden"></div>
             )}
 
-            {/*
-               <button
-                onClick={async () => {
-                const updatedLikes = await incrementLike()
-                setLikes(updatedLikes)
-                }}>
-            */}
+            <input type="text" />
 
             <MdEditor
                 heading={"New Post"}
@@ -62,8 +49,6 @@ export default function ClientComponent() {
                         </button>
                     </>
                 } />
-
-            {/* <form className="" action={formAction}></form> */}
         </div>
     )
 }

@@ -16,6 +16,7 @@ export type User = {
 };
 
 export type RemoteBlogPost = {
+  id: string;
   slug: string;
   published?: boolean;
   title: string;
@@ -23,3 +24,5 @@ export type RemoteBlogPost = {
   description: string;
   content: string;
 };
+
+export type NewRemoteBlogPost = Omit<RemoteBlogPost, 'id'>;
