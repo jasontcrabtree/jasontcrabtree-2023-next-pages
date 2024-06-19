@@ -21,7 +21,7 @@ export default async function RootLayout({
         <AppNav>
           <SignOutButton />
         </AppNav>
-        <main className='m-2 md:m-4 md:ml-2 rounded-lg shadow-lg bg-zinc-800 w-auto sm:w-full'>
+        <main className='m-2 md:m-4 md:ml-2 rounded-lg shadow-lg bg-zinc-800 w-auto sm:w-full overflow-y-visible'>
           {children}
         </main>
       </body>
