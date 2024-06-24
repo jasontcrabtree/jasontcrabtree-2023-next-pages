@@ -16,6 +16,7 @@
     "@phosphor-icons/react": "^2.1.5",
     "@types/mdx": "^2.0.13",
     "@uiw/react-md-editor": "^4.0.4",
+    "@uiw/react-textarea-code-editor": "^3.0.2",
     "@vercel/postgres": "^0.8.0",
     "bcrypt-ts": "^5.0.0",
     "gray-matter": "^4.0.3",

@@ -39,6 +39,7 @@ const App = async () => {
                                 </Link>
                             </h2>
                             <p>{post.description}</p>
+                            <p>{post.content}</p>
                         </div>
                     )
                 })}

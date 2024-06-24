@@ -25,7 +25,10 @@ export default function ClientComponent() {
                 <div className="bg-gray-700 w-full h-20 rounded-xl overflow-hidden"></div>
             )}
 
-            <input type="text" />
+            <label htmlFor="title" className="flex flex-row items-center gap-1">
+                Title
+                <input type="text" />
+            </label>
 
             <MdEditor
                 heading={"New Post"}

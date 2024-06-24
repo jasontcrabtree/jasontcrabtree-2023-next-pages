@@ -29,9 +29,9 @@ export const createNewBlogPost = async ({
 export const getAllPosts = async (): Promise<RemoteBlogPost[] | undefined> => {
   try {
     const result: QueryResult<RemoteBlogPost> = await sql<RemoteBlogPost>`
-      SELECT *
-      FROM remoteblogpost;
-    `;
+      SELECT * FROM remoteblogpost
+      WHERE published = TRUE
+      ORDER BY published_date;`;
     console.log('posts', result.rows);
     return result.rows;
   } catch (error) {}

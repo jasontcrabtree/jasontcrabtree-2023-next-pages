@@ -1,11 +1,13 @@
 'use client';
 
-import { Plus, PlusCircle } from "@phosphor-icons/react";
-import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 import { useState } from 'react'
+import SnippetModal from '../_ui/snippet-modal';
+import CodeEditor from '@uiw/react-textarea-code-editor';
 
 export default function ClientComponent() {
-    let [isOpen, setIsOpen] = useState(false)
+    let [snippetModalOpen, setSnippetModalOpen] = useState<boolean>(false)
+    const [snippetCode, setSnippetCode] = useState<string>("");
+
 
     return (
         <div className="p-4 md:px-32 flex flex-col gap-8">
@@ -27,23 +29,30 @@ export default function ClientComponent() {
                     </textarea>
                 </label>
                 <div className="w-4/5 ml-auto flex flex-row items-center gap-4 justify-between pl-2">
-                    <button onClick={() => setIsOpen(true)}>Open dialog</button>
-                    <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
-                        <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-                            <DialogPanel className="max-w-lg space-y-4 border bg-white p-12">
-                                <DialogTitle className="font-bold">Deactivate account</DialogTitle>
-                                <Description>This will permanently deactivate your account</Description>
-                                <p>Are you sure you want to deactivate your account? All of your data will be permanently removed.</p>
-                                <div className="flex gap-4">
-                                    <button onClick={() => setIsOpen(false)}>Cancel</button>
-                                    <button onClick={() => setIsOpen(false)}>Deactivate</button>
-                                </div>
-                            </DialogPanel>
+
+                    <SnippetModal modalState={snippetModalOpen} handleModalState={setSnippetModalOpen}>
+                        <label htmlFor="snippetLabel" className="flex flex-row items-center gap-2">
+                            Label
+                            <input type="snippetLabel" className='bg-indigo-900 w-full shadow-inner outline-none' />
+                        </label>
+                        <CodeEditor
+                            value={snippetCode}
+                            language="js"
+                            placeholder="Please enter JS code."
+                            onChange={(e) => setSnippetCode(e.target.value)}
+                            padding={16}
+                            style={{
+                                minHeight: "360px",
+                                borderRadius: "4px",
+                                backgroundColor: "#ebeaef",
+                                fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
+                            }}
+                        />
+                        <div className="button">
+                            <button onClick={() => setSnippetModalOpen(false)}>Add</button>
                         </div>
-                    </Dialog>
-                    <button className=" bg-emerald-700 border px-6 py-1 flex items-center justify-center rounded gap-1 text-zinc-100  hover:bg-emerald-900 border-emerald-900 shadow w-fit">
-                        <PlusCircle size={24} /> Snippet
-                    </button>
+                    </SnippetModal>
+
                     <button className="button">
                         Save
                     </button>
@@ -51,8 +60,7 @@ export default function ClientComponent() {
             </div>
             <div className="flex flex-col gap-4 w-full">
                 <h2 className="text-2xl font-bold text-rose-600">Entries</h2>
-                {new Array(12).fill("").map((item, index) => {
-                    console.log('item', item);
+                {new Array(3).fill("").map((item, index) => {
                     return (
                         <div key={index} className="rounded bg-zinc-700 p-4">
                             Logbook entry
