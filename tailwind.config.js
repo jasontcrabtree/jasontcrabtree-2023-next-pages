@@ -6,6 +6,11 @@ const config = {
   ],
   theme: {
     extend: {
+      colors: {
+        emerald: {
+          1000: '#021a10',
+        },
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

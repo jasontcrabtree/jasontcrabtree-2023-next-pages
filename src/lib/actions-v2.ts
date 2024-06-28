@@ -10,23 +10,20 @@ import {
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
-export const runDbOperation = async ({
-  query,
-  callback,
-  ...rest
-}: {
-  query: string;
-  callback?: () => void;
-  rest?: [];
-}) => {
+export const runDbOperation = async (query: string) => {
+  console.log('query', query);
+
   try {
-    await sql`${query}`;
+    const res = await sql`${query}`;
+
+    console.log('res', res);
+
+    return res;
   } catch (error) {
     return {
       message: `DB operation error: ${error}`,
     };
   }
-  callback;
 };
 
 export const createNewBlogPost = async ({
@@ -36,15 +33,9 @@ export const createNewBlogPost = async ({
   content,
   description,
 }: NewRemoteBlogPost) => {
-  try {
-    await sql`
+  await runDbOperation(`
     INSERT INTO "remoteblogpost" (slug, published, title, description, content)
-    VALUES (${slug}, ${published}, ${title}, ${description}, ${content}) RETURNING *;`;
-  } catch (error) {
-    return {
-      message: `Datebase error creating new blog post: ${error}`,
-    };
-  }
+    VALUES (${slug}, ${published}, ${title}, ${description}, ${content}) RETURNING *;`);
 
   revalidatePath('/posts');
   redirect('/posts');
@@ -54,9 +45,7 @@ export const getAllPosts = async (): Promise<RemoteBlogPost[] | undefined> => {
   try {
     const result: QueryResult<RemoteBlogPost> = await sql<RemoteBlogPost>`
       SELECT * FROM remoteblogpost
-      WHERE published = TRUE
       ORDER BY published_date;`;
-    console.log('posts', result.rows);
     return result.rows;
   } catch (error) {}
 };
@@ -90,14 +79,10 @@ export const createNewLogbookEntry = async ({
   const newlogbookQuery = `INSERT INTO "logbook_entry" (dashboarduser_id, timeblock, content)
     VALUES (${dashboarduser_id}, ${timeblock}, ${content}) RETURNING *;`;
 
-  const newLogbookEntry = await runDbOperation({
-    query: newlogbookQuery,
-    callback() {
-      revalidatePath('/logbook');
-    },
-  });
+  const newLogbookEntry = await runDbOperation(newlogbookQuery);
 
   console.log('newLogbookEntry', newLogbookEntry);
+  revalidatePath('/logbook');
 
   return newLogbookEntry;
 };

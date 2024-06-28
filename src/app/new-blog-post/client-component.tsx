@@ -5,17 +5,23 @@ import MdEditor from "../_ui/md-editor";
 import { SquareHalfBottom } from "@phosphor-icons/react";
 import { createNewBlogPost } from "@/lib/actions";
 import { NewRemoteBlogPost } from "@/lib/types";
+import { Session } from "next-auth";
+import { Switch } from '@headlessui/react'
 
-export default function ClientComponent() {
-    const [blogContents, setBlogContents] = useState<string>("");
+export default function ClientComponent({ user }: { user: Session | null }) {
     const [halfScreen, setHalfScreen] = useState(false);
+    const [title, setTitle] = useState<string | undefined>("");
+    const [description, setDescription] = useState<string | undefined>("");
+    const [slug, setSlug] = useState<string>("");
+    const [blogContents, setBlogContents] = useState<string>("");
+    const [publish, setPublish] = useState(false);
 
     const blogPostValues: NewRemoteBlogPost = {
-        title: "First one!",
-        description: "This is submitted via API, cross ya fingers",
         date: new Date().toISOString().split('T')[0],
-        published: false,
-        slug: "first-one",
+        title: title || "",
+        description: description || "",
+        published: publish,
+        slug,
         content: blogContents
     }
 
@@ -27,7 +33,17 @@ export default function ClientComponent() {
 
             <label htmlFor="title" className="flex flex-row items-center gap-1">
                 Title
-                <input type="text" />
+                <input className="bg-zinc-950" type="text" onChange={(e) => setTitle(e.target.value)} value={title} />
+            </label>
+
+            <label htmlFor="slug" className="flex flex-row items-center gap-1">
+                Slug
+                <input className="bg-zinc-950" type="text" onChange={(e) => setSlug(e.target.value)} value={slug} />
+            </label>
+
+            <label htmlFor="description" className="flex flex-row items-center gap-1">
+                Description
+                <input className="bg-zinc-950" type="text" onChange={(e) => setDescription(e.target.value)} value={description} />
             </label>
 
             <MdEditor
@@ -38,19 +54,28 @@ export default function ClientComponent() {
                     setBlogContents(newValue ?? "");
                 }}
                 additionalControls={
-                    <>
+                    <div className="flex flex-row gap-2 flex-1">
                         <button className={`rounded-full p-1 ${halfScreen && "bg-gray-700"}`} onClick={(() => setHalfScreen(!halfScreen))}>
                             <SquareHalfBottom
                                 color="white"
                                 size={24} />
                         </button>
-                        <button className="button px-3" onClick={async () => {
-                            const res = await createNewBlogPost(blogPostValues);
-                            console.log('res', res);
-                        }}>
-                            Publish
-                        </button>
-                    </>
+
+                        <div className="flex flex-row gap-2 items-center ml-auto">
+                            <Switch
+                                checked={publish}
+                                onChange={setPublish}
+                                className="group inline-flex h-6 w-11 items-center rounded-full bg-zinc-600 transition data-[checked]:bg-emerald-600"
+                            >
+                                <span className="size-4 translate-x-1 rounded-full bg-white transition group-data-[checked]:translate-x-6" />
+                            </Switch>
+                            <button className="button px-3" onClick={async () => {
+                                await createNewBlogPost(blogPostValues);
+                            }}>
+                                Publish
+                            </button>
+                        </div>
+                    </div>
                 } />
         </div>
     )

@@ -13,7 +13,7 @@ import { allWritingOrderedByDate } from '@/lib/blog';
 
 export default function Home({ blogPosts }: { blogPosts: [] }) {
 
-  console.log('blogPosts', blogPosts)
+  // console.log('blogPosts', blogPosts)
 
   return (
     <div className='flex flex-col items-center'>

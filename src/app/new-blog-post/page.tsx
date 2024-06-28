@@ -8,10 +8,9 @@ export const metadata = {
 
 const App = async () => {
     const user = await auth();
-    console.log('user', user);
 
     return (
-        <ClientComponent />
+        <ClientComponent user={user} />
     )
 }
 

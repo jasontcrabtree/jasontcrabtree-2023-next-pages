@@ -25,7 +25,7 @@ const MdEditor = ({
                     {heading}
                 </h1>
 
-                <div className="flex flex-row gap-4 items-center">
+                <div className="flex flex-row gap-4 items-center flex-1">
                     <button className={`rounded-full p-1 ${!hideToolBar && "bg-gray-700"}`} onClick={(() => setHideToolbar(!hideToolBar))}>
                         <TextAa size={24} />
                     </button>
