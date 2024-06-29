@@ -1,11 +1,12 @@
 'use client';
 
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import Modal from '../_ui/modal';
 import CodeEditor from '@uiw/react-textarea-code-editor';
 import { NewSnippet, Timeblock } from '@/lib/types';
 import { Blueprint } from '@phosphor-icons/react';
 import { createNewLogbookEntry } from '@/lib/actions';
+import { AuthContext } from '../_ui/auth-context';
 
 export default function ClientComponent() {
     let [isOpen, setIsOpen] = useState<boolean>(false)
@@ -14,6 +15,9 @@ export default function ClientComponent() {
         body: ""
     });
     const [snippets, setSnippets] = useState<NewSnippet[]>([]);
+
+    const auth = useContext(AuthContext);
+    console.log('auth', auth);
 
     return (
         <div className="p-4 md:px-32 flex flex-col gap-8">

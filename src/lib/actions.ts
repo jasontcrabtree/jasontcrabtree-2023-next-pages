@@ -10,25 +10,6 @@ import {
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
-export const runDbOperation = async ({
-  query,
-  callback,
-  ...rest
-}: {
-  query: string;
-  callback?: () => void;
-  rest?: [];
-}) => {
-  try {
-    await sql`${query}`;
-  } catch (error) {
-    return {
-      message: `DB operation error: ${error}`,
-    };
-  }
-  callback;
-};
-
 export const createNewBlogPost = async ({
   slug,
   published,
@@ -87,17 +68,13 @@ export const createNewLogbookEntry = async ({
   content,
   timeblock,
 }: NewLogBookEntry) => {
-  const newlogbookQuery = `INSERT INTO "logbook_entry" (dashboarduser_id, timeblock, content)
+  try {
+    await sql`INSERT INTO "logbook_entry" (dashboarduser_id, timeblock, content)
     VALUES (${dashboarduser_id}, ${timeblock}, ${content}) RETURNING *;`;
-
-  const newLogbookEntry = await runDbOperation({
-    query: newlogbookQuery,
-    callback() {
-      revalidatePath('/logbook');
-    },
-  });
-
-  console.log('newLogbookEntry', newLogbookEntry);
-
-  return newLogbookEntry;
+  } catch (error) {
+    return {
+      message: `Datebase error creating new blog post: ${error}`,
+    };
+  }
+  revalidatePath('/logbook');
 };
