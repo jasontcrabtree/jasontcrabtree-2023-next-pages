@@ -10,6 +10,26 @@ import {
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
+export const getUserInfo = async ({
+  userEmail,
+}: {
+  userEmail: string | null | undefined;
+}) => {
+  if (!userEmail) {
+    return null;
+  }
+
+  try {
+    const res =
+      await sql`SELECT dashboarduser_id, name, created_at, email FROM dashboarduser WHERE email = ${userEmail};`;
+    return res.rows[0];
+  } catch (error) {
+    return {
+      message: `Datebase error fetching user: ${error}`,
+    };
+  }
+};
+
 export const createNewBlogPost = async ({
   slug,
   published,
@@ -64,16 +84,22 @@ export const createNewSnippets = async ({
 };
 
 export const createNewLogbookEntry = async ({
-  dashboarduser_id,
+  email,
   content,
   timeblock,
+  date,
 }: NewLogBookEntry) => {
+  const userInfo = await getUserInfo({ userEmail: email });
+
+  if (!userInfo) {
+    return null;
+  }
+
   try {
-    await sql`INSERT INTO "logbook_entry" (dashboarduser_id, timeblock, content)
-    VALUES (${dashboarduser_id}, ${timeblock}, ${content}) RETURNING *;`;
+    await sql`INSERT INTO "logbook_entry" (dashboarduser_id, timeblock, content, date) VALUES (${userInfo.dashboarduser_id}, ${timeblock}, ${content}, ${date}) RETURNING *;`;
   } catch (error) {
     return {
-      message: `Datebase error creating new blog post: ${error}`,
+      message: `Datebase error creating new logbook entry: ${error}`,
     };
   }
   revalidatePath('/logbook');

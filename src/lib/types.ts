@@ -45,6 +45,7 @@ export enum Timeblock {
 }
 
 export type LogBookEntry = {
+  email: string | null | undefined;
   logbook_entry_id: string;
   date: string;
   timeblock: 'morning' | 'afternoon' | 'evening';
@@ -52,4 +53,7 @@ export type LogBookEntry = {
   content: string;
 };
 
-export type NewLogBookEntry = Omit<LogBookEntry, 'logbook_entry_id' | 'date'>;
+export type NewLogBookEntry = Omit<
+  LogBookEntry,
+  'logbook_entry_id' | 'dashboarduser_id'
+>;
