@@ -31,12 +31,9 @@ export type Snippet = {
   label: string;
   body: string;
   dashboarduser_id: string;
-  logbook_entry_id: string;
+  logbook_entry_id?: string;
 };
-export type NewSnippet = Omit<
-  Snippet,
-  'snippet_id' | 'logbook_entry_id' | 'dashboarduser_id'
->;
+export type NewSnippet = Omit<Snippet, 'snippet_id' | 'dashboarduser_id'>;
 
 export enum Timeblock {
   'morning',

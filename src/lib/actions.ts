@@ -57,30 +57,40 @@ export const getAllPosts = async (): Promise<RemoteBlogPost[] | undefined> => {
       SELECT * FROM remoteblogpost
       WHERE published = TRUE
       ORDER BY published_date;`;
-    console.log('posts', result.rows);
     return result.rows;
   } catch (error) {}
 };
 
 export const createNewSnippets = async ({
-  userId,
+  email,
   snippets,
 }: {
-  userId: string;
+  email: string | null | undefined;
   snippets: NewSnippet[];
 }) => {
-  const newSnippets = snippets.forEach(async (snippet: NewSnippet) => {
-    try {
-      await sql`
-            INSERT INTO "logbook_entry" (label, body, dashboarduser_id)
-            VALUES (${snippet.label}, ${snippet.body}, ${userId}) RETURNING *;`;
-    } catch (error) {
-      return {
-        message: `Datebase error creating snippet ${snippet.label}: ${error}`,
-      };
-    }
-  });
-  return newSnippets;
+  const userInfo = await getUserInfo({ userEmail: email });
+
+  if (!userInfo) {
+    return null;
+  }
+
+  try {
+    const newSnippets = Promise.all(
+      snippets.map(async (snippet: NewSnippet) => {
+        const res = await sql`
+        INSERT INTO "snippet" (label, body, dashboarduser_id)
+        VALUES (${snippet.label}, ${snippet.body}, ${userInfo.dashboarduser_id})
+        RETURNING *;`;
+
+        return res.rows[0];
+      })
+    );
+    return newSnippets;
+  } catch (error) {
+    return {
+      message: `Datebase error creating ${snippets.length} snippets`,
+    };
+  }
 };
 
 export const createNewLogbookEntry = async ({
@@ -96,11 +106,12 @@ export const createNewLogbookEntry = async ({
   }
 
   try {
-    await sql`INSERT INTO "logbook_entry" (dashboarduser_id, timeblock, content, date) VALUES (${userInfo.dashboarduser_id}, ${timeblock}, ${content}, ${date}) RETURNING *;`;
+    const res =
+      await sql`INSERT INTO "logbook_entry" (dashboarduser_id, timeblock, content, date) VALUES (${userInfo.dashboarduser_id}, ${timeblock}, ${content}, ${date}) RETURNING *;`;
+    return res.rows;
   } catch (error) {
     return {
       message: `Datebase error creating new logbook entry: ${error}`,
     };
   }
-  revalidatePath('/logbook');
 };

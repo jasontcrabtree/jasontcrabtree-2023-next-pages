@@ -6,17 +6,19 @@ import CodeEditor from '@uiw/react-textarea-code-editor';
 import { NewLogBookEntry, NewSnippet } from '@/lib/types';
 import { Field, Label, Radio, RadioGroup } from '@headlessui/react'
 import { Blueprint } from '@phosphor-icons/react';
-import { createNewLogbookEntry } from '@/lib/actions';
+import { createNewLogbookEntry, createNewSnippets } from '@/lib/actions';
 import { AuthContext } from '../_ui/auth-context';
 
 const timeblocks = ['morning', 'afternoon', 'evening']
 
 export default function ClientComponent() {
     const auth = useContext(AuthContext);
+    const userEmail = auth?.user?.email;
+
     let [isOpen, setIsOpen] = useState<boolean>(false)
 
     const [logbookEntry, setLogbookEntry] = useState<NewLogBookEntry>({
-        email: auth?.user?.email,
+        email: userEmail,
         date: "",
         content: "",
         timeblock: 'morning'
@@ -130,9 +132,20 @@ export default function ClientComponent() {
                         </div>
                     )}
 
-                    <button className="button" onClick={() => {
-                        console.log('snippets', snippets);
-                        createNewLogbookEntry(logbookEntry)
+                    <button className="button" onClick={async () => {
+                        const apiRes = await createNewLogbookEntry(logbookEntry)
+                        if (apiRes) {
+                            const snippetsRes = await createNewSnippets({
+                                email: userEmail,
+                                snippets: snippets
+                            })
+                            console.log('snippetsRes', snippetsRes);
+
+                            // const newSnippets = snippets.map((snippetData) => {
+                            // })
+                            // Promise.all(snippets).then
+
+                        }
                     }}>
                         Save
                     </button>
