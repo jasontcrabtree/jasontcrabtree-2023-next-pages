@@ -137,14 +137,9 @@ export default function ClientComponent() {
                         if (apiRes) {
                             const snippetsRes = await createNewSnippets({
                                 email: userEmail,
-                                snippets: snippets
+                                snippets: snippets,
+                                logbook_entry_id: apiRes.logbook_entry_id
                             })
-                            console.log('snippetsRes', snippetsRes);
-
-                            // const newSnippets = snippets.map((snippetData) => {
-                            // })
-                            // Promise.all(snippets).then
-
                         }
                     }}>
                         Save

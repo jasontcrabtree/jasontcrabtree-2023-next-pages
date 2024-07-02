@@ -64,9 +64,11 @@ export const getAllPosts = async (): Promise<RemoteBlogPost[] | undefined> => {
 export const createNewSnippets = async ({
   email,
   snippets,
+  logbook_entry_id,
 }: {
   email: string | null | undefined;
   snippets: NewSnippet[];
+  logbook_entry_id?: string;
 }) => {
   const userInfo = await getUserInfo({ userEmail: email });
 
@@ -77,10 +79,12 @@ export const createNewSnippets = async ({
   try {
     const newSnippets = Promise.all(
       snippets.map(async (snippet: NewSnippet) => {
-        const res = await sql`
-        INSERT INTO "snippet" (label, body, dashboarduser_id)
-        VALUES (${snippet.label}, ${snippet.body}, ${userInfo.dashboarduser_id})
-        RETURNING *;`;
+        const res =
+          await sql`INSERT INTO "snippet" (label, body, dashboarduser_id, logbook_entry_id)
+          VALUES (${snippet.label}, ${snippet.body}, ${
+            userInfo.dashboarduser_id
+          }, ${logbook_entry_id || null})
+          RETURNING *;`;
 
         return res.rows[0];
       })
@@ -108,7 +112,7 @@ export const createNewLogbookEntry = async ({
   try {
     const res =
       await sql`INSERT INTO "logbook_entry" (dashboarduser_id, timeblock, content, date) VALUES (${userInfo.dashboarduser_id}, ${timeblock}, ${content}, ${date}) RETURNING *;`;
-    return res.rows;
+    return res.rows[0];
   } catch (error) {
     return {
       message: `Datebase error creating new logbook entry: ${error}`,
