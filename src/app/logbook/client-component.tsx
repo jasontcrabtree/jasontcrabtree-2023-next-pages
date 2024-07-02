@@ -3,27 +3,29 @@
 import { useContext, useState } from 'react'
 import Modal from '../_ui/modal';
 import CodeEditor from '@uiw/react-textarea-code-editor';
-import { NewLogBookEntry, NewSnippet } from '@/lib/types';
+import { LogBookEntry, NewLogBookEntry, NewSnippet } from '@/lib/types';
 import { Field, Label, Radio, RadioGroup } from '@headlessui/react'
 import { Blueprint } from '@phosphor-icons/react';
 import { createNewLogbookEntry, createNewSnippets } from '@/lib/actions';
 import { AuthContext } from '../_ui/auth-context';
-
+import { redirect } from 'next/navigation';
 const timeblocks = ['morning', 'afternoon', 'evening']
 
-export default function ClientComponent() {
+export default function ClientComponent(logbookEntries: { logbookEntries: LogBookEntry[] }) {
     const auth = useContext(AuthContext);
     const userEmail = auth?.user?.email;
 
-    let [isOpen, setIsOpen] = useState<boolean>(false)
+    if (!auth || !userEmail) {
+        redirect('/login')
+    }
 
+    let [isOpen, setIsOpen] = useState<boolean>(false)
     const [logbookEntry, setLogbookEntry] = useState<NewLogBookEntry>({
         email: userEmail,
         date: "",
         content: "",
         timeblock: 'morning'
     })
-
     const [snippetCode, setSnippetCode] = useState<NewSnippet>({
         label: "",
         body: ""
@@ -34,7 +36,6 @@ export default function ClientComponent() {
         <div className="p-4 md:px-32 flex flex-col gap-8">
             <h1 className="text-2xl font-bold text-rose-600">Logbook</h1>
             <div className="flex flex-col gap-4">
-
                 <label htmlFor="date" className="flex flex-row gap-2 items-start">
                     <span className="w-1/5">
                         Date
@@ -135,7 +136,7 @@ export default function ClientComponent() {
                     <button className="button" onClick={async () => {
                         const apiRes = await createNewLogbookEntry(logbookEntry)
                         if (apiRes) {
-                            const snippetsRes = await createNewSnippets({
+                            await createNewSnippets({
                                 email: userEmail,
                                 snippets: snippets,
                                 logbook_entry_id: apiRes.logbook_entry_id
@@ -148,10 +149,29 @@ export default function ClientComponent() {
             </div>
             <div className="flex flex-col gap-4 w-full">
                 <h2 className="text-2xl font-bold text-rose-600">Entries</h2>
-                {new Array(3).fill("").map((item, index) => {
+                {logbookEntries.logbookEntries.slice(0, 5).map((item: LogBookEntry) => {
+                    const { date } = item;
+                    let jsDate = new Date(date)
+                    let formattedDate = `${(jsDate.getMonth() + 1)}/${jsDate.getDate()}/${jsDate.getFullYear()}`;
+                    console.log(formattedDate);
+
                     return (
-                        <div key={index} className="rounded bg-zinc-700 p-4">
-                            Logbook entry
+                        <div key={item.logbook_entry_id} className="rounded bg-zinc-700 p-4">
+                            {item.timeblock && (
+                                <div>
+                                    {item.timeblock}
+                                </div>
+                            )}
+                            {formattedDate && (
+                                <div>
+                                    {formattedDate}
+                                </div>
+                            )}
+                            {item.content && (
+                                <div>
+                                    {item.content}
+                                </div>
+                            )}
                         </div>
                     )
                 })}

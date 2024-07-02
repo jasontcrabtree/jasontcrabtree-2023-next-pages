@@ -42,7 +42,7 @@ export enum Timeblock {
 }
 
 export type LogBookEntry = {
-  email: string | null | undefined;
+  email: string;
   logbook_entry_id: string;
   date: string;
   timeblock: 'morning' | 'afternoon' | 'evening';

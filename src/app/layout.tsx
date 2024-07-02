@@ -3,7 +3,6 @@ import AppNav from './_ui/app-nav';
 import { SignOutButton } from './_ui/sign-out-button';
 import AuthContext from './_ui/auth-context';
 import { auth } from './_auth/auth';
-import { getUserInfo } from '@/lib/actions';
 
 export const metadata = {
   title: 'Mark I',

@@ -9,12 +9,9 @@ import {
 } from './types';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+import { NextResponse } from 'next/server';
 
-export const getUserInfo = async ({
-  userEmail,
-}: {
-  userEmail: string | null | undefined;
-}) => {
+export const getUserInfo = async (userEmail: string) => {
   if (!userEmail) {
     return null;
   }
@@ -66,11 +63,11 @@ export const createNewSnippets = async ({
   snippets,
   logbook_entry_id,
 }: {
-  email: string | null | undefined;
+  email: string;
   snippets: NewSnippet[];
   logbook_entry_id?: string;
 }) => {
-  const userInfo = await getUserInfo({ userEmail: email });
+  const userInfo = await getUserInfo(email);
 
   if (!userInfo) {
     return null;
@@ -103,7 +100,7 @@ export const createNewLogbookEntry = async ({
   timeblock,
   date,
 }: NewLogBookEntry) => {
-  const userInfo = await getUserInfo({ userEmail: email });
+  const userInfo = await getUserInfo(email);
 
   if (!userInfo) {
     return null;
@@ -116,6 +113,48 @@ export const createNewLogbookEntry = async ({
   } catch (error) {
     return {
       message: `Datebase error creating new logbook entry: ${error}`,
+    };
+  }
+};
+
+export const getUserSnippets = async ({ userEmail }: { userEmail: string }) => {
+  const userInfo = await getUserInfo(userEmail);
+
+  if (!userInfo) {
+    return NextResponse.json({ error: 'User is required' }, { status: 404 });
+  }
+
+  try {
+    const res =
+      await sql`SELECT * FROM snippet WHERE dashboarduser_id = ${userInfo.dashboarduser_id};`;
+
+    return res.rows;
+  } catch (error) {
+    return {
+      message: `DB error for email ${userEmail}. Errors: ${error}`,
+    };
+  }
+};
+
+export const getUserLogbookEntries = async ({
+  userEmail,
+}: {
+  userEmail: string;
+}) => {
+  const userInfo = await getUserInfo(userEmail);
+
+  if (!userInfo) {
+    return NextResponse.json({ error: 'User is required' }, { status: 404 });
+  }
+
+  try {
+    const res =
+      await sql`SELECT * FROM logbook_entry WHERE dashboarduser_id = ${userInfo.dashboarduser_id};`;
+
+    return res.rows;
+  } catch (error) {
+    return {
+      message: `DB error for email ${userEmail}. Errors: ${error}`,
     };
   }
 };
