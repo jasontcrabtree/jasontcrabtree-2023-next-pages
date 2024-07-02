@@ -123,7 +123,7 @@ export default function ClientComponent() {
                             {snippets.map((snippet, index) => {
                                 if (snippet) {
                                     return (
-                                        <div className={`pl-[${index * 8}px] w-fit`}>
+                                        <div className={`pl-[${index * 8}px] w-fit`} key={index}>
                                             <Blueprint size={24} color="#047857" />
                                         </div>
                                     )
