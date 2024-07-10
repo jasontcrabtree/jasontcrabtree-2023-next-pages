@@ -19,11 +19,13 @@ export default async function RootLayout({
 }) {
   const user = await auth();
 
-  if (!user) {
-    return (
-      <div>No user found</div>
-    )
-  }
+  console.log('user', user);
+
+  // if (!user) {
+  //   return (
+  //     <div>No user found</div>
+  //   )
+  // }
 
   return (
     <html lang="en">
