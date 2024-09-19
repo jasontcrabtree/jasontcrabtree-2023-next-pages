@@ -26,6 +26,14 @@ export type RemoteBlogPost = {
 };
 export type NewRemoteBlogPost = Omit<RemoteBlogPost, 'id'>;
 
+export type Note = {
+  id: string;
+  note_body: string;
+  date: string;
+};
+
+export type NewNote = Omit<Note, 'id'>;
+
 export type Snippet = {
   snippet_id: string;
   label: string;

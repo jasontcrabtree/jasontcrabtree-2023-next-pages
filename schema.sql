@@ -38,3 +38,8 @@
 --     FOREIGN KEY (tag_id) REFERENCES tag(tag_id)
 -- );
 -- ABOVE RUN 19/6/2024
+
+-- CREATE TABLE note (
+--     note_id UUID PRIMARY KEY,
+--     note_body TEXT NOT NULL
+-- )

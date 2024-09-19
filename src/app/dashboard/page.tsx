@@ -1,10 +1,7 @@
-import Link from "next/link";
-
 export const metadata = {
     title: 'Dashboard | Mark I',
     description: '',
 };
-
 
 const Page = () => {
     return (

@@ -3,6 +3,7 @@
 import { QueryResult, sql } from '@vercel/postgres';
 import {
   NewLogBookEntry,
+  NewNote,
   NewRemoteBlogPost,
   NewSnippet,
   RemoteBlogPost,
@@ -46,6 +47,18 @@ export const createNewBlogPost = async ({
 
   revalidatePath('/posts');
   redirect('/posts');
+};
+
+export const saveNote = async ({ note_body, date }: NewNote) => {
+  try {
+    await sql`
+      INSERT INTO "note" (note_body, date)
+      VALUES (${note_body}, ${date}) RETURNING *;`;
+  } catch (error) {
+    return {
+      message: `Datebase error creating new note ${error}`,
+    };
+  }
 };
 
 export const getAllPosts = async (): Promise<RemoteBlogPost[] | undefined> => {

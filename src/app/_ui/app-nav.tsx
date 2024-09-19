@@ -45,6 +45,9 @@ const AppNav = ({ children }: { children: React.ReactNode }): React.ReactElement
                     <Link href="/logbook" className={`${navLinkItem}`}>
                         ~/Logbook
                     </Link>
+                    <Link href="/notes" className={`${navLinkItem}`}>
+                        ~/Notes
+                    </Link>
                     <Link href="/blog" className={`${navLinkItem}`}>
                         ~/Blog
                     </Link>
