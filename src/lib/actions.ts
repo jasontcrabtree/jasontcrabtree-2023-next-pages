@@ -49,11 +49,25 @@ export const createNewBlogPost = async ({
   redirect('/posts');
 };
 
-export const saveNote = async ({ note_body, date }: NewNote) => {
+export const saveNote = async ({
+  email,
+  note_body,
+  date,
+}: {
+  email: string;
+  note_body: string;
+  date: string;
+}) => {
+  const userInfo = await getUserInfo(email);
+
+  if (!userInfo) {
+    return null;
+  }
+
   try {
     await sql`
-      INSERT INTO "note" (note_body, date)
-      VALUES (${note_body}, ${date}) RETURNING *;`;
+      INSERT INTO "note" (note_body, date, dashboarduser_id)
+      VALUES (${note_body}, ${date}, ${userInfo.dashboarduser_id}) RETURNING *;`;
   } catch (error) {
     return {
       message: `Datebase error creating new note ${error}`,
@@ -163,6 +177,26 @@ export const getUserLogbookEntries = async ({
   try {
     const res =
       await sql`SELECT * FROM logbook_entry WHERE dashboarduser_id = ${userInfo.dashboarduser_id};`;
+
+    return res.rows;
+  } catch (error) {
+    return {
+      message: `DB error for email ${userEmail}. Errors: ${error}`,
+    };
+  }
+};
+
+export const getUserNotes = async ({ userEmail }: { userEmail: string }) => {
+  const userInfo = await getUserInfo(userEmail);
+
+  if (!userInfo) {
+    return NextResponse.json({ error: 'User is required' }, { status: 404 });
+  }
+
+  try {
+    const res =
+      // await sql`SELECT * FROM snippet WHERE dashboarduser_id = ${userInfo.dashboarduser_id};`;
+      await sql`SELECT * FROM note WHERE dashboarduser_id = ${userInfo.dashboarduser_id};`;
 
     return res.rows;
   } catch (error) {

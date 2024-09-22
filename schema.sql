@@ -42,4 +42,6 @@
 -- CREATE TABLE note (
 --     note_id UUID PRIMARY KEY,
 --     note_body TEXT NOT NULL
+--     dashboarduser_id UUID,
+--     FOREIGN KEY (dashboarduser_id) REFERENCES dashboarduser(dashboarduser_id),
 -- )
