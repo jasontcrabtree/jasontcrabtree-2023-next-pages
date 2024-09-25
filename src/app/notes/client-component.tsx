@@ -52,7 +52,6 @@ export default function ClientComponent({ user, notes }: {
                     </div>
                 )
             })}
-
         </div>
     )
 }
