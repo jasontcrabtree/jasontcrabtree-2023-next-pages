@@ -6,4 +6,6 @@ const handler = NextAuth({
   ...authConfig,
 });
 
-export { handler as GET, handler as POST };
+// export { handler as GET, handler as POST };
+
+export { GET, POST } from '@/app/_auth/auth';
