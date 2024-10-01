@@ -1,8 +1,8 @@
 import { getUserLogbookEntries } from "@/lib/actions";
 import ClientComponent from "./client-component";
-import { auth } from "../_auth/archive-auth";
 import { redirect } from "next/navigation";
 import { LogBookEntry } from "@/lib/types";
+import { auth } from "../../../auth";
 
 export const metadata = {
     title: 'Worklog | Mark I',
@@ -11,8 +11,9 @@ export const metadata = {
 
 const App = async () => {
     const user = await auth();
+
     if (!user || !user.user || !user.user.email) {
-        redirect('/login');
+        redirect("/login");
     }
 
     const userLogEntries = await getUserLogbookEntries({

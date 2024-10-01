@@ -1,4 +1,5 @@
-import { auth } from "../_auth/archive-auth";
+import { redirect } from "next/navigation";
+import { auth } from "../../../auth";
 import ClientComponent from "./client-component";
 
 export const metadata = {
@@ -7,6 +8,12 @@ export const metadata = {
 };
 
 const App = async () => {
+    const user = await auth();
+
+    if (!user || !user.user || !user.user.email) {
+        redirect("/login");
+    }
+
     return (
         <ClientComponent />
     )

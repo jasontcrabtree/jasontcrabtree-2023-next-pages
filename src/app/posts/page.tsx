@@ -1,11 +1,19 @@
 import { getAllPosts } from "@/lib/actions";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { auth } from "../../../auth";
 
 export const metadata = {
     title: 'Posts | Mark I',
 };
 
 const App = async () => {
+    const user = await auth();
+
+    if (!user || !user.user || !user.user.email) {
+        redirect("/login");
+    }
+
     const posts = await getAllPosts();
 
     if (!posts || posts === null || posts.length <= 0) {

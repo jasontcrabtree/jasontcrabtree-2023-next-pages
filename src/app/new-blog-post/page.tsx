@@ -1,5 +1,6 @@
-import { auth } from "../_auth/archive-auth";
+import { redirect } from "next/navigation";
 import ClientComponent from "./client-component";
+import { auth } from "../../../auth";
 
 export const metadata = {
     title: 'Editor | Mark I',
@@ -9,6 +10,9 @@ export const metadata = {
 const App = async () => {
     const user = await auth();
 
+    if (!user || !user.user || !user.user.email) {
+        redirect("/login");
+    }
     return (
         <ClientComponent user={user} />
     )

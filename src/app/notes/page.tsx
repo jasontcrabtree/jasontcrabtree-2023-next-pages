@@ -1,7 +1,8 @@
 import { getUserNotes } from "@/lib/actions";
-import { auth } from "../_auth/archive-auth";
 import ClientComponent from "./client-component";
 import { Note } from "@/lib/types";
+import { auth } from "../../../auth";
+import { redirect } from "next/navigation";
 
 export const metadata = {
     title: 'Editor | Mark I',
@@ -12,7 +13,7 @@ const App = async () => {
     const user = await auth();
 
     if (!user || !user.user || !user.user.email) {
-        return <div>Error no user found</div>
+        redirect("/login");
     }
 
     const notes = await getUserNotes({

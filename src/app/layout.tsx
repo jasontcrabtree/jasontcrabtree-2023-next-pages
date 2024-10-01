@@ -19,14 +19,6 @@ export default async function RootLayout({
 }) {
   const session = await auth();
 
-  console.log('user', session);
-
-  // if (!user) {
-  //   return (
-  //     <div>No user found</div>
-  //   )
-  // }
-
   return (
     <html lang="en">
       <body className='bg-zinc-950 text-white flex flex-col sm:flex-row min-h-screen w-full'>
