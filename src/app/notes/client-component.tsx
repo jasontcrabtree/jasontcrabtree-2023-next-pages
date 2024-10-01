@@ -24,8 +24,6 @@ export default function ClientComponent({ user, notes }: {
 
     console.log('notes', notes);
 
-
-
     return (
         <div className="p-4 lg:px-64 flex flex-col gap-3">
             <label htmlFor="noteBody" className="flex flex-col items-start gap-2">
@@ -43,11 +41,7 @@ export default function ClientComponent({ user, notes }: {
 
             {notes.map((note) => {
                 return (
-                    <div key={note.id}>
-                        {/* <span className="align-super">
-                            {note.date && note.date}
-                        </span> */}
-                        {/* <span>{note.date && note.date}</span> */}
+                    <div key={note.note_id}>
                         {note.note_body}
                     </div>
                 )

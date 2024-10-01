@@ -1,4 +1,4 @@
-import { auth } from "../_auth/auth";
+import { auth } from "../_auth/archive-auth";
 import ClientComponent from "./client-component";
 
 export const metadata = {

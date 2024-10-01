@@ -1,6 +1,6 @@
 import { getUserLogbookEntries } from "@/lib/actions";
 import ClientComponent from "./client-component";
-import { auth } from "../_auth/auth";
+import { auth } from "../_auth/archive-auth";
 import { redirect } from "next/navigation";
 import { LogBookEntry } from "@/lib/types";
 

@@ -1,6 +1,4 @@
-'use client';
-
-import { signOut } from "../_auth/auth";
+import { signOut } from "../../../auth";
 
 export async function SignOutButton() {
     // return (
@@ -14,17 +12,25 @@ export async function SignOutButton() {
     //         <button className='p-2 px-4 rounded-lg flex items-center w-full justify-center font-medium border border-rose-500 text-rose-500 hover:border-rose-700 hover:text-rose-700' type="submit">Sign Out</button>
     //     </form>
     // );
-    const handleSignOut = async () => {
-        // @ts-ignore
-        await signOut({ callbackUrl: '/login' });
-    };
+
+    // const handleSignOut = async () => {
+    //     await signOut({ callbackUrl: '/login' });
+    // };
 
     return (
-        <button
-            onClick={handleSignOut}
-            className='p-2 px-4 rounded-lg flex items-center w-full justify-center font-medium border border-rose-500 text-rose-500 hover:border-rose-700 hover:text-rose-700'
+        // <button
+        //     onClick={handleSignOut}
+        //     className='p-2 px-4 rounded-lg flex items-center w-full justify-center font-medium border border-rose-500 text-rose-500 hover:border-rose-700 hover:text-rose-700'
+        // >
+        //     Sign Out
+        // </button>
+        <form
+            action={async () => {
+                "use server"
+                await signOut()
+            }}
         >
-            Sign Out
-        </button>
+            <button type="submit">Sign Out</button>
+        </form>
     );
 }

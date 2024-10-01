@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Form } from '@/app/_ui/form';
-import { signIn } from '@/app/_auth/auth';
+import { signIn } from '@/app/_auth/archive-auth';
 import { SubmitButton } from '@/app/_ui/submit-button';
 
 export default function Login() {

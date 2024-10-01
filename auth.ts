@@ -1,20 +1,15 @@
+import { authConfig } from '@/app/_auth/archive-auth.config';
+import { getUser } from '@/app/_db/auth-db';
+import { compare } from 'bcrypt-ts';
 import NextAuth, { Session } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { compare } from 'bcrypt-ts';
-import { getUser } from '../_db/auth-db';
-import { authConfig } from './auth.config';
 
 interface Credentials {
   email: string;
   password: string;
 }
 
-export const {
-  handlers: { GET, POST },
-  auth,
-  signIn,
-  signOut,
-} = NextAuth({
+export const { auth, handlers, signIn, signOut } = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
   ...authConfig,
   providers: [

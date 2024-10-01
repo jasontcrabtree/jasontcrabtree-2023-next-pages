@@ -1,5 +1,5 @@
 import { getUserNotes } from "@/lib/actions";
-import { auth } from "../_auth/auth";
+import { auth } from "../_auth/archive-auth";
 import ClientComponent from "./client-component";
 import { Note } from "@/lib/types";
 
